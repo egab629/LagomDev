@@ -424,15 +424,88 @@ h2.display em { font-style: italic; color: var(--green-dark); }
 
 
 /* ─── SIPS PAGE ─── */
-.sips-hero {
-  padding: calc(var(--nav-h) + 5rem) 2rem 4rem;
-  background: var(--cream); text-align: center;
+.sips-hero-split {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 580px;
 }
-.sips-hero h1 {
-  font-family: var(--font-serif); font-size: clamp(2.4rem, 4vw, 3.8rem);
-  font-weight: 600; color: var(--charcoal); letter-spacing: -0.02em; margin-bottom: 1rem;
+.sips-hero-img {
+  background-image: url("https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Gemini_Generated_Image_arg8idarg8idarg8.png/:/cr=t:11.54%25,l:11.54%25,w:76.92%25,h:76.92%25/rs=w:1160,h:633");
+  background-size: cover; background-position: center; min-height: 480px;
 }
-.sips-hero p { font-size: 1.1rem; color: var(--stone); max-width: 580px; margin: 0 auto; }
+.sips-hero-text {
+  padding: calc(var(--nav-h) + 4rem) 4rem 4rem;
+  background: var(--cream); display: flex; flex-direction: column; justify-content: center;
+}
+.sips-hero-text h1 {
+  font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 600; color: var(--charcoal); letter-spacing: -0.02em; margin-bottom: 1.25rem;
+}
+.sips-hero-text p { font-size: 1.05rem; color: var(--stone); line-height: 1.7; margin-bottom: 1.75rem; }
+@media (max-width: 900px) {
+  .sips-hero-split { grid-template-columns: 1fr; }
+  .sips-hero-img { min-height: 280px; }
+  .sips-hero-text { padding: 3rem 2rem; }
+}
+.sips-what-split {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 500px;
+}
+.sips-what-text {
+  padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center;
+  background: var(--warm-white);
+}
+.sips-what-text h2 {
+  font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600; color: var(--charcoal); margin-bottom: 1.25rem;
+}
+.sips-what-text p { font-size: 1rem; color: var(--stone); line-height: 1.85; margin-bottom: 1rem; }
+.sips-what-img {
+  background-image: url("https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Gemini_Generated_Image_ulg66oulg66oulg6.png/:/cr=t:2.21%25,l:14.17%25,w:70.42%25,h:70.42%25/rs=w:800,cg:true,m");
+  background-size: cover; background-position: center;
+}
+@media (max-width: 900px) {
+  .sips-what-split { grid-template-columns: 1fr; }
+  .sips-what-img { min-height: 280px; }
+  .sips-what-text { padding: 3rem 2rem; }
+}
+.sips-advantages {
+  display: grid; grid-template-columns: 380px 1fr; gap: 0; align-items: stretch;
+  max-width: var(--max); margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.sips-advantages-img {
+  border-radius: var(--radius-lg); overflow: hidden; flex-shrink: 0;
+}
+.sips-advantages-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius-lg);
+}
+.sips-advantages-content { padding-left: 4rem; }
+.sips-advantages-content h2 {
+  font-family: var(--font-serif); font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  .sips-advantages { grid-template-columns: 1fr; }
+  .sips-advantages-img { height: 260px; margin-bottom: 2rem; }
+  .sips-advantages-content { padding-left: 0; }
+}
+.sips-myths { background: var(--charcoal); padding: 5rem 2rem; }
+.sips-myths-inner { max-width: var(--max); margin: 0 auto; }
+.sips-myths h2 {
+  font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600; color: white; text-align: center; margin-bottom: 0.5rem;
+}
+.sips-myths .section-sub { text-align: center; color: rgba(255,255,255,0.55); margin-bottom: 3rem; }
+.sips-myth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.sips-myth-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(60,179,113,0.2);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.sips-myth-card img { width: 100%; aspect-ratio: 2/1; object-fit: cover; display: block; }
+.sips-myth-body { padding: 1.5rem; }
+.sips-myth-card .myth { font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; }
+.sips-myth-card h4 { font-family: var(--font-serif); font-size: 1.1rem; color: white; margin-bottom: 0.5rem; }
+.sips-myth-card .truth-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); margin-bottom: 0.4rem; display: block; }
+.sips-myth-card p { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+@media (max-width: 900px) { .sips-myth-grid { grid-template-columns: 1fr; } }
 
 .sips-diagram {
   max-width: var(--max); margin: 0 auto; padding: 5rem 2rem;
