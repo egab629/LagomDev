@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lagom Development — Sustainable, attainable housing for working families across the Southeast. Building walkable communities with high-performance SIPs.">
+<meta property="og:title" content="Lagom Development">
+<meta property="og:description" content="An integrated housing company creating sustainable, attainable, and beautiful neighborhoods with high performance SIPs.">
+<title>Lagom Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home')">
+      <img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle" onclick="return false;">Get to Know Us <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="dropdown">
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
+          <li><a href="#" onclick="showPage('mission')">Our Mission</a></li>
+          <li><a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener">Invest on Wefunder</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="showPage('sips')">Why SIPs</a></li>
+      <li class="has-dropdown">
+        <a href="#" class="dropdown-toggle" onclick="return false;">Projects <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="dropdown">
+          <li><a href="#" onclick="showPage('communities')">Explore Our Communities</a></li>
+          <li><a href="#" onclick="showPage('projects')">Bluebird Lane</a></li>
+          <li><a href="#" onclick="showPage('oakdale')">Oakdale Forest</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>
+      <li><a href="#" class="cta" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home'); toggleMenu()">Home</a>
+  <a href="#" class="mobile-parent" onclick="return false;">Get to Know Us</a>
+  <a href="#" class="mobile-sub" onclick="showPage('about'); toggleMenu()">About Us</a>
+  <a href="#" class="mobile-sub" onclick="showPage('mission'); toggleMenu()">Our Mission</a>
+  <a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" class="mobile-sub" onclick="toggleMenu()">Invest on Wefunder</a>
+  <a href="#" onclick="showPage('sips'); toggleMenu()">Why SIPs</a>
+  <a href="#" class="mobile-parent" onclick="return false;">Projects</a>
+  <a href="#" class="mobile-sub" onclick="showPage('communities'); toggleMenu()">Explore Our Communities</a>
+  <a href="#" class="mobile-sub" onclick="showPage('projects'); toggleMenu()">Bluebird Lane</a>
+  <a href="#" class="mobile-sub" onclick="showPage('oakdale'); toggleMenu()">Oakdale Forest</a>
+  <a href="#" onclick="showPage('faqs'); toggleMenu()">FAQs</a>
+  <a href="#" onclick="showPage('contact'); toggleMenu()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Sustainable · Attainable · Beautiful</div>
+        <h1>We build homes that<br><em>build futures</em></h1>
+        <p class="hero-sub">An integrated housing company creating walkable, human-scale neighborhoods for working families across the Southeast — built with high-performance SIPs and designed to last.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" onclick="showPage('communities')">Explore Our Communities</a>
+          <a href="#" class="btn btn-outline" onclick="showPage('mission')">Our Mission</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="stat-card accent">
+          <div class="stat-num">6.5M</div>
+          <div class="stat-label">Home shortage across the U.S. — we're fixing it</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">164</div>
+          <div class="stat-label">Cottage-style homes in our flagship Bluebird Lane community</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">31 ac</div>
+          <div class="stat-label">Walkable neighborhood designed for people, not cars</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="strip-inner">
+      <h2>Fixing what's <em>broken</em> in American housing</h2>
+      <div class="strip-text">
+        <p>The U.S. is short more than 6.5 million homes. Traditional construction is slow, expensive, and inefficient. Middle-income families are being priced out of the communities they grew up in.</p>
+        <p>We believe everyone deserves a dignified place to call home. Our mission is to create walkable, human-scale neighborhoods built with integrity, efficiency, and care — and we're doing it differently.</p>
+      </div>
+    </div>
+    <div style="max-width: var(--max); margin: 3rem auto 0; padding: 0 2rem;">
+      <img src="https://img1.wsimg.com/isteam/getty/2172319807/:/cr=t:2.74%25,l:0%25,w:100%25,h:74.96%25/rs=w:1240,h:620,cg:true"
+           alt="Walkable neighborhood community"
+           style="width:100%; border-radius: var(--radius-lg); display:block;">
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="label">What we do</div>
+    <h2 class="display">A better way to <em>build</em></h2>
+    <p class="lead">We're not just building houses — we're helping people build futures. By owning every step of the process, we make it possible for people previously priced out of homeownership to take their first step.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"/></svg>
+        </div>
+        <h3>A place to raise a family</h3>
+        <p>Thoughtfully designed cottages, townhomes, and condos with front porches, community gardens, and walkable streets — built for real life.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7L12 12L22 7L12 2M2 17L12 22L22 17M2 12L12 17L22 12"/></svg>
+        </div>
+        <h3>A chance to build wealth</h3>
+        <p>Attainable pricing brings homeownership within reach for teachers, first responders, and middle-income earners — restoring the wealth-building power of owning a home.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22S3 18 3 11A9 9 0 0 1 21 11C21 18 12 22 12 22Z"/></svg>
+        </div>
+        <h3>A sustainable future</h3>
+        <p>High-performance SIPs mean lower energy bills, reduced construction waste, and smaller carbon footprints — built to last for generations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--cream); padding: 5rem 2rem;">
+    <div class="section" style="padding: 0;">
+      <div class="label">Who we serve</div>
+      <h2 class="display">Homes for people who <em>make a difference</em></h2>
+      <p class="lead">We design homes that fill the gap between outdated starter homes and overpriced new construction, so more people can live well — affordably.</p>
+      <div class="serve-grid">
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div>
+            <h4>First-time homebuyers</h4>
+            <p>Step onto the property ladder with a home designed for long-term value.</p>
+          </div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div>
+            <h4>Essential workers</h4>
+            <p>Teachers, nurses, firefighters — people who serve deserve a home that's within reach.</p>
+          </div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div>
+            <h4>Young families</h4>
+            <p>Space to grow, a yard for the kids, and a community that feels like home.</p>
+          </div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div>
+            <h4>Downsizers</h4>
+            <p>Right-sized living with premium energy efficiency and timeless design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-strip">
+    <h2>"Not too much. Not too little. Just right."</h2>
+    <p>The philosophy behind every home we build.</p>
+    <a href="#" class="btn btn-white" onclick="showPage('contact')">Let's Connect</a>
+  </section>
+
+  <!-- FOOTER inside home page -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="#" onclick="showPage('home')">
+          <img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development">
+        </a>
+        <p>Sustainable, attainable housing for working families across the Southeast. Building walkable communities with integrity and care.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#" onclick="showPage('about')">About Us</a>
+        <a href="#" onclick="showPage('mission')">Our Mission</a>
+        <a href="#" onclick="showPage('projects')">Projects</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="#" onclick="showPage('sips')">Why SIPs</a>
+        <a href="#" onclick="showPage('faqs')">FAQs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:7708256190">(770) 825-6190</a>
+        <a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a>
+        <a href="#" onclick="showPage('contact')">Send a message</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Lagom Development. All rights reserved.</span>
+      <div class="social-links">
+        <a href="https://www.facebook.com/people/Lagom-Development/61576748907711/" class="social-link" target="_blank">f</a>
+        <a href="https://www.instagram.com/lagom.development/" class="social-link" target="_blank">ig</a>
+        <a href="https://www.linkedin.com/company/lagom-development/" class="social-link" target="_blank">in</a>
+        <a href="https://www.youtube.com/@lagomdev" class="social-link" target="_blank">yt</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: ABOUT
+═══════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="about-split">
+    <div class="about-split-text">
+      <div class="label">Our Story</div>
+      <h1>Meet Lagom Development</h1>
+      <p>At Lagom Development, we build walkable, sustainable communities centered on people, not profit. Our mission is to fill the "missing middle" of housing by delivering thoughtfully designed cottages, townhomes, condos, and duplexes that are energy efficient, architecturally timeless, and within reach for working families.</p>
+      <p>Founded by veteran builder and real estate developer <strong>Skip Hulsey</strong>, Lagom draws on decades of hands-on experience in construction and home sales. After seeing firsthand the widening gap in attainable, high-quality housing, Skip set out to create real solutions — not workarounds.</p>
+      <p>Lagom Development is committed to restoring homeownership, equity, and pride in communities across the Southeast. Through intentional design, sustainable building methods, and right-sized housing options, we're helping working families reclaim the American Dream, one home at a time.</p>
+    </div>
+    <div class="about-split-img" role="img" aria-label="Sustainable community housing"></div>
+  </div>
+
+  <div class="team-section">
+    <div class="team-section-inner">
+      <h2>Our Leadership</h2>
+      <p class="section-sub">The team behind Lagom Development</p>
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="team-avatar">SH</div>
+          <div>
+            <h3>Skip Hulsey</h3>
+            <span class="team-title">Founder &amp; CEO</span>
+            <ul>
+              <li>Veteran builder and real estate developer</li>
+              <li>Decades of hands-on experience in construction and home sales</li>
+              <li>Founded Lagom to address the widening gap in attainable, high-quality housing across the Southeast</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar alt">PH</div>
+          <div>
+            <h3>Pete Hall</h3>
+            <span class="team-title">Chief Operating Officer</span>
+            <ul>
+              <li>40+ years in manufacturing optimization</li>
+              <li>Ex-Accenture</li>
+              <li>MBA, University of Georgia</li>
+              <li>BA, Northwestern University</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar alt">CR</div>
+          <div>
+            <h3>Chip Royce</h3>
+            <span class="team-title">Chief Revenue Officer</span>
+            <ul>
+              <li>25+ years sales and marketing leadership in technology and manufacturing</li>
+              <li>P&amp;L leader: startups (multiple exits) → corporate venture → Fortune 100</li>
+              <li>Ex-Dell, Lenovo</li>
+              <li>MBA, University of Miami &middot; BA, Boston University</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">GB</div>
+          <div>
+            <h3>Gina Bennett</h3>
+            <span class="team-title">Chief Technology Officer</span>
+            <ul>
+              <li>30+ years technology leadership across real estate, construction, data, and enterprise platforms</li>
+              <li>B.Sc. Computer Science &amp; Mathematics, Clarkson University</li>
+              <li>A.S. Computer Science, Jamestown Community College</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--charcoal); padding: 5rem 2rem; text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: white; margin-bottom: 1rem;">Want to build with us?</h2>
+    <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">We're not just building homes — we're fostering a future where everyone thrives.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn btn-primary" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.25);" onclick="showPage('projects')">View Our Projects</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a>
+        <p>Sustainable, attainable housing for working families across the Southeast.</p>
+      </div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MISSION
+═══════════════════════════════════════ -->
+<div class="page" id="page-mission">
+
+  <div class="mission-hero-split">
+    <div class="mission-hero-img"></div>
+    <div class="mission-hero-text">
+      <div class="label" style="color: var(--green);">Philosophy</div>
+      <h1>Eco-friendly homes,<br><em>just right in every way</em></h1>
+      <p>Balanced, energy-efficient housing for first-time buyers, essential workers, and families priced out of the market.</p>
+    </div>
+  </div>
+
+  <div class="lagom-word">
+    <div class="big">lagom</div>
+    <div class="ipa">/ ˈlɑːɡɔm / · Swedish</div>
+    <p>A Swedish word meaning <strong>"just the right amount."</strong> Not too much. Not too little. Just right. That's how we design, build, and live — balanced, thoughtful, and human-scaled.</p>
+  </div>
+
+  <div class="mission-pillar-row">
+    <div class="mission-pillar-img" style="background-image: url('https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/DSC07653-1.jpg/:/cr=t:6.94%25,l:0%25,w:100%25,h:86.12%25/rs=w:1184,m');"></div>
+    <div class="mission-pillar-text">
+      <div class="label">Our mission</div>
+      <h2>To restore the American Dream of homeownership</h2>
+      <p>To create beautiful, energy-efficient homes that restore the American Dream of ownership for working families — filling the gap between outdated starter homes and overpriced new construction, so more people can live well, affordably.</p>
+    </div>
+  </div>
+
+  <div class="mission-pillar-row reverse">
+    <div class="mission-pillar-img" style="background-image: url('https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Use%20AI%20Image%20Apr%206%2C%202026%2C%2018_14_12.png/:/cr=t:15.74%25,l:0%25,w:100%25,h:68.52%25/rs=w:1184,m');"></div>
+    <div class="mission-pillar-text">
+      <div class="label">Who we serve</div>
+      <h2>Homes for families the market left behind</h2>
+      <ul>
+        <li>First-time homebuyers</li>
+        <li>Essential workers</li>
+        <li>Downsizers</li>
+        <li>Families priced out of the market</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="cta-strip">
+    <h2>"Not too much. Not too little. Just right."</h2>
+    <p>The philosophy behind every home we build.</p>
+    <a href="#" class="btn btn-white" onclick="showPage('projects')">See Our Projects</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: WHY SIPS
+═══════════════════════════════════════ -->
+<div class="page" id="page-sips">
+  <div class="sips-hero">
+    <div class="label" style="justify-content: center;">Building Technology</div>
+    <h1>Build better from the start<br>with SIPs</h1>
+    <p>Discover how Structural Insulated Panels are transforming modern construction — stronger, faster, and more energy-efficient than conventional framing.</p>
+  </div>
+
+  <div class="sips-diagram">
+    <div>
+      <div class="label">What are SIPs?</div>
+      <h2 class="display">A smarter<br><em>building system</em></h2>
+      <p style="color: var(--stone); line-height: 1.85; margin-bottom: 2rem;">Structural Insulated Panels (SIPs) are a high-performance building system used in residential and commercial construction. Each panel consists of an insulating foam core sandwiched between two structural facings — replacing traditional framing, insulation, and sheathing all in one.</p>
+      <p style="color: var(--stone); line-height: 1.85;">The result is a building method that is stronger, more energy-efficient, and faster to construct than conventional approaches. At Lagom, every home starts with SIPs.</p>
+      <a href="#" class="btn btn-primary" style="margin-top: 2rem; display: inline-flex;" onclick="showPage('projects')">See SIPs in Action →</a>
+    </div>
+    <div>
+      <div style="background: var(--cream); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border);">
+        <div style="padding: 1rem 1.5rem; background: var(--charcoal);">
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4);">SIP Panel Cross-Section</span>
+        </div>
+        <div class="sips-layer" style="border-bottom: 1px solid var(--green-mid);">
+          <div style="width: 8px; height: 8px; background: var(--green); border-radius: 50%;"></div>
+          <div><div style="font-weight: 500; font-size: 0.9rem;">Oriented Strand Board (OSB)</div><div class="layer-label" style="color: var(--mist);">Exterior face · structural sheathing</div></div>
+        </div>
+        <div class="sips-layer" style="border-bottom: 1px solid var(--green-mid); background: var(--green-pale);">
+          <div style="width: 8px; height: 8px; background: var(--green-dark); border-radius: 50%;"></div>
+          <div><div style="font-weight: 500; font-size: 0.9rem;">Foam Insulation Core</div><div class="layer-label" style="color: var(--mist);">EPS or polyurethane · R-value 4–6.5 per inch</div></div>
+        </div>
+        <div style="padding: 2.5rem 1.5rem; background: var(--green); display: flex; align-items: center; justify-content: center; text-align: center;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 3rem; font-weight: 600; color: white; line-height: 1;">50%</div>
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.8);">less energy use vs traditional build</div>
+          </div>
+        </div>
+        <div class="sips-layer" style="border-top: 1px solid var(--green-mid); background: var(--green-pale);">
+          <div style="width: 8px; height: 8px; background: var(--green-dark); border-radius: 50%;"></div>
+          <div><div style="font-weight: 500; font-size: 0.9rem;">Foam Insulation Core</div><div class="layer-label" style="color: var(--mist);">Continuous thermal envelope</div></div>
+        </div>
+        <div class="sips-layer" style="border-top: 1px solid var(--green-mid);">
+          <div style="width: 8px; height: 8px; background: var(--green); border-radius: 50%;"></div>
+          <div><div style="font-weight: 500; font-size: 0.9rem;">Oriented Strand Board (OSB)</div><div class="layer-label" style="color: var(--mist);">Interior face · structural sheathing</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--cream); padding: 5rem 2rem;">
+    <div style="max-width: var(--max); margin: 0 auto;">
+      <div class="label">The advantages</div>
+      <h2 class="display">Why we build with <em>SIPs</em></h2>
+      <div class="sips-benefits" style="margin-top: 2rem; max-width: 680px;">
+        <div class="benefit-row">
+          <div class="benefit-num">01</div>
+          <div class="benefit-text">
+            <h4>Dramatically faster construction</h4>
+            <p>SIP homes can be enclosed 2–3× faster than stick-built, cutting labor costs and getting families into their homes sooner.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">02</div>
+          <div class="benefit-text">
+            <h4>Superior energy efficiency</h4>
+            <p>Continuous insulation with no thermal bridging means dramatically lower heating and cooling bills — often 40–60% less than conventional homes.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">03</div>
+          <div class="benefit-text">
+            <h4>Exceptional structural strength</h4>
+            <p>SIP panels outperform traditional framing in wind resistance, impact tests, and load-bearing capacity — built to last generations.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">04</div>
+          <div class="benefit-text">
+            <h4>Less waste, smaller footprint</h4>
+            <p>Factory-precision manufacturing produces significantly less job-site waste than traditional framing — better for the environment and your bottom line.</p>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">05</div>
+          <div class="benefit-text">
+            <h4>Better indoor air quality</h4>
+            <p>The tight building envelope reduces allergens, dust, and moisture infiltration — creating healthier homes for families.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-strip">
+    <h2>Ready to see SIPs in action?</h2>
+    <p>Our flagship Bluebird Lane community in Athens, GA is SIPs-built from the ground up.</p>
+    <a href="#" class="btn btn-white" onclick="showPage('projects')">View Bluebird Lane</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: PROJECTS — BLUEBIRD LANE
+═══════════════════════════════════════ -->
+<div class="page" id="page-projects">
+
+  <div class="projects-hero">
+    <div class="projects-hero-inner">
+      <div class="label" style="color: var(--green);">Our Work</div>
+      <h1>Our Flagship Neighborhood:<br>Bluebird Lane</h1>
+      <p>A flagship community redefining attainable housing.</p>
+    </div>
+  </div>
+
+  <!-- BLUEBIRD LANE DESCRIPTION (first) -->
+  <div style="background: var(--cream); padding: 5rem 2rem;">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Bluebird Lane is a 30-acre community in Athens, Georgia, designed to deliver attainable, high-quality housing at scale.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">The project includes 248 homes, with a mix of cottages, townhomes, and condominiums, built for modern living and long-term value.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Homes range from 1,000 to 1,400 square feet, thoughtfully designed to maximize space, comfort, and efficiency.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Using high-performance structural insulated panels (SIPs), we are able to build faster, more sustainably, and with significantly lower long-term energy costs.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9;">With a target pricing around $250,000, Bluebird Lane opens the door to homeownership for families who have been priced out of the market.</p>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAIL CARD (second) -->
+  <div style="max-width: var(--max); margin: 3rem auto; padding: 0 2rem;">
+    <div class="project-card">
+      <div class="project-card-body">
+        <div class="project-map">
+          <div class="project-map-art"></div>
+          <div class="project-map-pin">
+            <div class="pin"></div>
+            <div class="project-map-label">Athens, Georgia</div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="label">Flagship Project · Athens, GA</div>
+          <h2>Bluebird Lane</h2>
+          <p class="project-location">Athens, Georgia · Est. 2024</p>
+          <div class="project-stats">
+            <div class="p-stat">
+              <div class="p-stat-n">248</div>
+              <div class="p-stat-l">Total Homes</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-n">30ac</div>
+              <div class="p-stat-l">Total Site</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-n">~$250k</div>
+              <div class="p-stat-l">Target Price</div>
+            </div>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>248 homes</strong> — a mix of cottages, townhomes, and condominiums.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>1,000–1,400 sq ft</strong> — right-sized homes designed for real life.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>SIPs built for performance</strong> — faster, greener construction with exceptional energy efficiency.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>Walkable by design</strong> — front porches, community gardens, and streets built for people.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>Priced for working families</strong> — teachers, firefighters, and middle-income earners.</p>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" onclick="showPage('contact')">Register Interest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILT FROM THE INSIDE OUT -->
+  <div class="section">
+    <div class="label">Our approach</div>
+    <h2 class="display">Built from the <em>Inside Out</em></h2>
+    <p class="lead">We don't just build homes — we've rethought the entire process.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+      <div>
+        <p style="color: var(--stone); line-height: 1.85; margin-bottom: 1rem;">Lagom is a vertically integrated housing platform, combining development, manufacturing, and technology to deliver better outcomes.</p>
+        <p style="color: var(--stone); line-height: 1.85; margin-bottom: 1rem;">This approach allows us to reduce construction costs, accelerate timelines, and deliver higher-quality homes.</p>
+        <p style="color: var(--stone); line-height: 1.85;">Every community is designed to be walkable, sustainable, and attainable for working families.</p>
+      </div>
+      <div class="serve-grid" style="margin-top: 0;">
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Development</h4><p>Site selection, planning, and community design — all in-house.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Manufacturing</h4><p>We produce our own SIPs panels, cutting lead times and cost.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Technology</h4><p>Data-driven design and process tools that speed up every phase.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Sales</h4><p>Direct-to-buyer — no middlemen, better prices for homeowners.</p></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem;">
+      <img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Gemini_Generated_Image_arg8idarg8idarg8.png/:/cr=t:9.08%25,l:5.36%25,w:89.29%25,h:81.85%25/rs=w:600,h:300,cg:true,m"
+           alt="Lagom community rendering"
+           style="width:100%; border-radius: var(--radius-lg); display:block; object-fit:cover; aspect-ratio:2/1;">
+      <img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Gemini_Generated_Image_k6nk88k6nk88k6nk.png/:/cr=t:13.04%25,l:9.68%25,w:80.65%25,h:73.92%25/rs=w:600,h:300,cg:true,m"
+           alt="Lagom community design"
+           style="width:100%; border-radius: var(--radius-lg); display:block; object-fit:cover; aspect-ratio:2/1;">
+    </div>
+  </div>
+
+  <!-- EXPANSION PIPELINE -->
+  <div style="background: var(--charcoal); padding: 5rem 2rem;">
+    <div style="max-width: var(--max); margin: 0 auto;">
+      <div class="label" style="color: var(--green);">Growth pipeline</div>
+      <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; color: white; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1.25rem;">Expanding Across <em style="font-style: italic; color: var(--green);">High-Growth Markets</em></h2>
+      <p style="color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.85; max-width: 640px; margin-bottom: 3rem;">Lagom is actively scaling across the Southeast, with a growing pipeline of communities designed to meet increasing housing demand.</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(60,179,113,0.2); border-radius: var(--radius-lg); padding: 2rem;">
+          <div style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--green); margin-bottom: 0.5rem;">Now</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Athens, Georgia</h3>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); margin-bottom: 0.75rem;">Flagship Community</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">248 homes · Bluebird Lane</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(60,179,113,0.2); border-radius: var(--radius-lg); padding: 2rem;">
+          <div style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--green); margin-bottom: 0.5rem;">2026–2027</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Southeast U.S.</h3>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); margin-bottom: 0.75rem;">Active Pipeline</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Expanding to high-growth markets across the region.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(60,179,113,0.2); border-radius: var(--radius-lg); padding: 2rem;">
+          <div style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--green); margin-bottom: 0.5rem;">2028+</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Texas & Beyond</h3>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.55); margin-bottom: 0.75rem;">Future Growth</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Scaling the model into Texas and new expanded markets.</p>
+        </div>
+      </div>
+      <img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/viber_image_2022-04-01_13-41-30-052-2.jpg/:/cr=t:4.06%25,l:0%25,w:100%25,h:66.71%25/rs=w:1240,h:620,cg:true"
+           alt="Lagom development site"
+           style="width:100%; border-radius: var(--radius-lg); display:block; object-fit:cover;">
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <h2>Let's Build Something Meaningful Together</h2>
+    <p>We partner with aligned stakeholders to deliver high-impact residential communities at scale. Whether you're a landowner, investor, or development partner, we welcome the opportunity to collaborate.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Get in Touch</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('mission')">Learn More</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: PROJECTS — OAKDALE FOREST
+═══════════════════════════════════════ -->
+<div class="page" id="page-oakdale">
+
+  <div class="oakdale-hero">
+    <div class="oakdale-hero-inner">
+      <div class="label" style="color: var(--green);">Our Work</div>
+      <h1>Coming Soon:<br>Oakdale Forest</h1>
+      <p>A new community bringing attainable, sustainable housing to [TBD location].</p>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div style="background: var(--cream); padding: 5rem 2rem;">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Oakdale Forest is a [TBD]-acre community in [TBD location], designed to deliver attainable, high-quality housing at scale.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">The project will include [TBD] homes, with a mix of [TBD home types], built for modern living and long-term value.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Homes will range from [TBD] square feet, thoughtfully designed to maximize space, comfort, and efficiency.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9; margin-bottom: 1.25rem;">Using high-performance structural insulated panels (SIPs), we build faster, more sustainably, and with significantly lower long-term energy costs.</p>
+      <p style="font-size: 1.05rem; color: var(--stone); line-height: 1.9;">With target pricing around [TBD], Oakdale Forest opens the door to homeownership for families who have been priced out of the market.</p>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAIL CARD -->
+  <div style="max-width: var(--max); margin: 3rem auto; padding: 0 2rem;">
+    <div class="project-card">
+      <div class="project-card-body">
+        <div class="project-map">
+          <div class="project-map-art"></div>
+          <div class="project-map-pin">
+            <div class="pin"></div>
+            <div class="project-map-label">[TBD Location]</div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="label">Coming Soon · [TBD Location]</div>
+          <h2>Oakdale Forest</h2>
+          <p class="project-location">[TBD Location] · Est. [TBD]</p>
+          <div class="project-stats">
+            <div class="p-stat">
+              <div class="p-stat-n">[TBD]</div>
+              <div class="p-stat-l">Total Homes</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-n">[TBD]</div>
+              <div class="p-stat-l">Total Site</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-n">[TBD]</div>
+              <div class="p-stat-l">Target Price</div>
+            </div>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>[TBD] homes</strong> — a mix of [TBD home types].</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>[TBD] sq ft</strong> — right-sized homes designed for real life.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>SIPs built for performance</strong> — faster, greener construction with exceptional energy efficiency.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>Walkable by design</strong> — front porches, community gardens, and streets built for people.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <p><strong>Priced for working families</strong> — teachers, firefighters, and middle-income earners.</p>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" onclick="showPage('contact')">Register Interest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUILT FROM THE INSIDE OUT -->
+  <div class="section">
+    <div class="label">Our approach</div>
+    <h2 class="display">Built from the <em>Inside Out</em></h2>
+    <p class="lead">We don't just build homes — we've rethought the entire process.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+      <div>
+        <p style="color: var(--stone); line-height: 1.85; margin-bottom: 1rem;">Lagom is a vertically integrated housing platform, combining development, manufacturing, and technology to deliver better outcomes.</p>
+        <p style="color: var(--stone); line-height: 1.85; margin-bottom: 1rem;">This approach allows us to reduce construction costs, accelerate timelines, and deliver higher-quality homes.</p>
+        <p style="color: var(--stone); line-height: 1.85;">Every community is designed to be walkable, sustainable, and attainable for working families.</p>
+      </div>
+      <div class="serve-grid" style="margin-top: 0;">
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Development</h4><p>Site selection, planning, and community design — all in-house.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Manufacturing</h4><p>We produce our own SIPs panels, cutting lead times and cost.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Technology</h4><p>Data-driven design and process tools that speed up every phase.</p></div>
+        </div>
+        <div class="serve-card">
+          <div class="serve-dot"></div>
+          <div><h4>Sales</h4><p>Direct-to-buyer — no middlemen, better prices for homeowners.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <h2>Interested in Oakdale Forest?</h2>
+    <p>Register your interest and be the first to hear about availability, pricing, and community updates.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Register Interest</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('projects')">View Bluebird Lane</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: FAQS
+═══════════════════════════════════════ -->
+<div class="page" id="page-faqs">
+  <div class="faqs-hero">
+    <div class="label" style="justify-content: center;">Questions</div>
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about Lagom, our homes, and how we build.</p>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What makes Lagom Development different from other homebuilders?
+        <div class="faq-icon"><svg viewBox="0 0 24 24" fill="var(--green)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Lagom is a vertically integrated housing company — meaning we control the entire process from panel to porch. We manufacture our own high-performance SIPs (Structural Insulated Panels), design thoughtful, walkable neighborhoods, and develop each community with sustainability, efficiency, and affordability in mind. This end-to-end ownership lets us deliver better homes at better prices.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What are SIPs, and why do you use them?
+        <div class="faq-icon"><svg viewBox="0 0 24 24" fill="var(--green)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">SIPs (Structural Insulated Panels) are advanced building components that are stronger, faster to build with, and far more energy-efficient than traditional stick-built construction. They allow us to reduce waste, lower energy bills for homeowners, and speed up build times — all while delivering better homes. At Lagom, every home is built with SIPs from the ground up.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Who are your homes designed for?
+        <div class="faq-icon"><svg viewBox="0 0 24 24" fill="var(--green)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">We're building for teachers, firefighters, young families, and middle-income earners who've been priced out of traditional homeownership. Our mission is to bring attainable, beautiful homes back within reach — in the communities where people already live and work. If you've been told you can't afford to own, we want to talk to you.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Where is your first project located?
+        <div class="faq-icon"><svg viewBox="0 0 24 24" fill="var(--green)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Our flagship neighbourhood, Bluebird Lane, is located in Athens, GA. It features 164 cottage-style homes plus 101 condos on 31 acres, built with SIPs and designed for walkability, beauty, and long-term affordability. Athens is a vibrant community and the perfect home for our vision.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I express interest in a Lagom home?
+        <div class="faq-icon"><svg viewBox="0 0 24 24" fill="var(--green)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">The best way is to reach out directly through our contact page or call us at (770) 825-6190. You can also email admin@lagomdevelopment.com. We'd love to understand your situation and help you explore your options at Bluebird Lane and future communities.</div></div>
+    </div>
+  </div>
+
+  <div style="background: var(--cream); padding: 5rem 2rem; text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em;">"Let's build something meaningful together"</h2>
+    <p style="color: var(--stone); margin-bottom: 2rem;">Still have questions? Drop us a line.</p>
+    <a href="#" class="btn btn-primary" onclick="showPage('contact')">Contact Us</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: CONTACT
+═══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="contact-hero">
+    <div class="label" style="justify-content: center;">Get in Touch</div>
+    <h1>Let's connect</h1>
+    <p>We'd love to hear from you — whether you're a prospective homebuyer, investor, or partner.</p>
+  </div>
+
+  <div class="contact-body">
+    <div class="contact-info">
+      <h2>Reach out directly</h2>
+      <p>Whether you're exploring homeownership options at Bluebird Lane, interested in partnership opportunities, or just want to learn more — our team is ready to help.</p>
+      <div class="contact-items">
+        <a href="tel:7708256190" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 5.86 5.86l.85-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><strong>(770) 825-6190</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Schedule a call</span></div>
+        </a>
+        <a href="mailto:admin@lagomdevelopment.com" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><strong>admin@lagomdevelopment.com</strong><br><span style="color: var(--mist); font-size: 0.8rem;">We reply within 24 hours</span></div>
+        </a>
+        <div class="contact-item" style="cursor: default;">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="white"/></svg></div>
+          <div><strong>Athens, Georgia</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Bluebird Lane — our flagship community</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <h2>Send us a message</h2>
+        <p style="font-size: 0.9rem; color: var(--mist); margin-bottom: 0.5rem;">We'd love to hear from you.</p>
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" id="cf-name" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="cf-email" placeholder="jane@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" id="cf-phone" placeholder="(770) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>I'm interested in…</label>
+          <select id="cf-interest">
+            <option value="">Select one</option>
+            <option>Buying a home at Bluebird Lane</option>
+            <option>Investment opportunities</option>
+            <option>Partnership / Development</option>
+            <option>General inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="cf-message" placeholder="Tell us a bit about what you're looking for…"></textarea>
+        </div>
+        <div class="form-success" id="form-success">✓ Thank you! We'll be in touch within 24 hours.</div>
+        <button class="btn btn-primary" onclick="submitForm()" style="width: 100%; justify-content: center;">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: EXPLORE OUR COMMUNITIES
+═══════════════════════════════════════ -->
+<div class="page" id="page-communities">
+  <div class="communities-hero">
+    <div class="label" style="justify-content: center;">Our Neighborhoods</div>
+    <h1>Uncover the Beauty of<br><em>Lagom Development</em></h1>
+    <p>Redefining what it means to live well — communities where sustainability, thoughtful design, and human connection come together.</p>
+    <a href="#" class="btn btn-white" style="margin-top: 2rem; display: inline-flex;" onclick="showPage('projects')">Explore Our Projects</a>
+  </div>
+
+  <div class="section">
+    <div class="label">Our philosophy</div>
+    <h2 class="display">Balance in every <em>detail</em></h2>
+    <p class="lead">We design neighborhoods around people — walkable streets, front porches, community gardens, and homes that are right-sized for real life. Not too much. Not too little. Just right.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"/></svg>
+        </div>
+        <h3>Walkable by design</h3>
+        <p>Every community is planned around people, not cars — with connected sidewalks, green spaces, and destinations within easy reach.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22S3 18 3 11A9 9 0 0 1 21 11C21 18 12 22 12 22Z"/></svg>
+        </div>
+        <h3>Sustainable by default</h3>
+        <p>SIPs construction, energy-efficient systems, and thoughtful site planning mean lower bills and a smaller footprint from day one.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21V19A4 4 0 0 0 13 15H5A4 4 0 0 0 1 19V21M23 21V19A4 4 0 0 0 16.85 15.1M16 3.13A4 4 0 0 1 16 11M9 11A4 4 0 1 0 9 3A4 4 0 0 0 9 11Z"/></svg>
+        </div>
+        <h3>Built for community</h3>
+        <p>Shared gardens, porches that face the street, and amenities that bring neighbors together — because home is more than four walls.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--cream); padding: 5rem 2rem;">
+    <div style="max-width: var(--max); margin: 0 auto;">
+      <div class="label">Current development</div>
+      <h2 class="display">Our flagship community:<br><em>Bluebird Lane</em></h2>
+      <p class="lead">Athens, Georgia — 164 cottage homes + 101 condos on 31 walkable acres. SIPs-built, attainably priced, and rooted in one of the Southeast's most vibrant cities.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary" onclick="showPage('projects')">See Full Project Details</a>
+        <a href="#" class="btn btn-outline" onclick="showPage('contact')">Register Interest</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-strip">
+    <h2>Ready to find your community?</h2>
+    <p>Get in touch and we'll help you explore your options at Bluebird Lane.</p>
+    <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
