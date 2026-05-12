@@ -23,20 +23,20 @@
     <ul class="nav-links">
       <li><a href="#" onclick="showPage('home')">Home</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-toggle" onclick="return false;">Get to Know Us <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(this); return false;">Get to Know Us <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
         <ul class="dropdown">
-          <li><a href="#" onclick="showPage('about')">About Us</a></li>
-          <li><a href="#" onclick="showPage('mission')">Our Mission</a></li>
-          <li><a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener">Invest on Wefunder</a></li>
+          <li><a href="#" onclick="showPage('about'); toggleDropdown(this)">About Us</a></li>
+          <li><a href="#" onclick="showPage('mission'); toggleDropdown(this)">Our Mission</a></li>
+          <li><a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" onclick="toggleDropdown(this)">Invest on Wefunder</a></li>
         </ul>
       </li>
       <li><a href="#" onclick="showPage('sips')">Why SIPs</a></li>
       <li class="has-dropdown">
-        <a href="#" class="dropdown-toggle" onclick="return false;">Projects <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(this); return false;">Projects <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
         <ul class="dropdown">
-          <li><a href="#" onclick="showPage('communities')">Explore Our Communities</a></li>
-          <li><a href="#" onclick="showPage('projects')">Bluebird Lane</a></li>
-          <li><a href="#" onclick="showPage('oakdale')">Oakdale Forest</a></li>
+          <li><a href="#" onclick="showPage('communities'); toggleDropdown(this)">Explore Our Communities</a></li>
+          <li><a href="#" onclick="showPage('projects'); toggleDropdown(this)">Bluebird Lane</a></li>
+          <li><a href="#" onclick="showPage('oakdale'); toggleDropdown(this)">Oakdale Forest</a></li>
         </ul>
       </li>
       <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>

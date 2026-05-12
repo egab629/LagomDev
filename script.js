@@ -1,3 +1,16 @@
+function toggleDropdown(el) {
+  const item = el.closest('.has-dropdown');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.has-dropdown')) {
+    document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
