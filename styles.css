@@ -931,7 +931,7 @@ footer {
 .oakdale-stat:last-child { border-right: none; }
 .oakdale-stat-n { font-family: var(--font-serif); font-size: 1.9rem; font-weight: 700; color: var(--green); }
 .oakdale-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
-.oakdale-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: var(--max); margin: 0 auto; padding: 0 2rem 4rem; }
+.oakdale-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
 .oakdale-phase { padding: 2rem 2rem; border-left: 1px solid var(--border); }
 .oakdale-phase:first-child { border-left: none; }
 .oakdale-phase-num { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--green); opacity: 0.25; line-height: 1; }
@@ -940,7 +940,7 @@ footer {
 .oakdale-phase.active .oakdale-phase-num { opacity: 1; }
 .oakdale-phase.active .oakdale-phase-title { color: var(--green); }
 .oakdale-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--green); color: white; border-radius: 20px; padding: 0.2rem 0.7rem; margin-left: 0.5rem; vertical-align: middle; }
-.home-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: var(--max); margin: 0 auto; padding: 0 2rem 4rem; }
+.home-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .home-type-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; background: white; box-shadow: 0 2px 16px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
 .home-type-card h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--charcoal); margin-bottom: 0.4rem; }
 .home-type-price { font-size: 1.6rem; font-weight: 700; color: var(--green); margin-bottom: 0.75rem; }
