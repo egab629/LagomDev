@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -28,6 +28,7 @@
         <ul class="dropdown">
           <li><a href="#" onclick="showPage('about'); toggleDropdown(this)">About Us</a></li>
           <li><a href="#" onclick="showPage('mission'); toggleDropdown(this)">Our Mission</a></li>
+          <li><a href="#" onclick="showPage('blog'); toggleDropdown(this)">Blog</a></li>
           <li><a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" onclick="toggleDropdown(this)">Invest on Wefunder</a></li>
         </ul>
       </li>
@@ -55,6 +56,7 @@
   <a href="#" class="mobile-parent" onclick="return false;">Get to Know Us</a>
   <a href="#" class="mobile-sub" onclick="showPage('about'); toggleMenu()">About Us</a>
   <a href="#" class="mobile-sub" onclick="showPage('mission'); toggleMenu()">Our Mission</a>
+  <a href="#" class="mobile-sub" onclick="showPage('blog'); toggleMenu()">Blog</a>
   <a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" class="mobile-sub" onclick="toggleMenu()">Invest on Wefunder</a>
   <a href="#" onclick="showPage('sips'); toggleMenu()">Why SIPs</a>
   <a href="#" class="mobile-parent" onclick="return false;">Projects</a>
@@ -320,6 +322,74 @@
         <a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a>
         <p>Sustainable, attainable housing for working families across the Southeast.</p>
       </div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: BLOG
+═══════════════════════════════════════ -->
+<div class="page" id="page-blog">
+  <div class="blog-hero">
+    <div class="label" style="justify-content: center; color: var(--green);">Insights</div>
+    <h1>The Lagom Blog</h1>
+    <p>Perspectives on sustainable housing, attainable homeownership, and the future of community building.</p>
+  </div>
+
+  <div class="blog-grid-section">
+    <div class="blog-grid">
+
+      <article class="blog-card featured">
+        <div class="blog-card-img" style="background: var(--green-pale);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Housing</span>
+          <h2 class="blog-card-title">The Missing Middle: Why America's Housing Gap Is Bigger Than You Think</h2>
+          <p class="blog-card-excerpt">Millions of working families are caught between outdated starter homes and overpriced new construction. Here's why the missing middle matters — and what we're doing about it.</p>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-img" style="background: var(--cream);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">SIPs</span>
+          <h2 class="blog-card-title">Why We Build with SIPs — And Why It Changes Everything</h2>
+          <p class="blog-card-excerpt">Structural Insulated Panels aren't just a building material. They're a philosophy — faster, stronger, and dramatically more energy-efficient than conventional framing.</p>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-img" style="background: var(--cream);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Community</span>
+          <h2 class="blog-card-title">What Makes a Neighborhood Walkable — And Why It Matters</h2>
+          <p class="blog-card-excerpt">Walkability isn't just a design preference. It's tied to health outcomes, community connection, and long-term property value. We build with it at the center of every decision.</p>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-img" style="background: var(--cream);"></div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Investing</span>
+          <h2 class="blog-card-title">Investing in Attainable Housing: The Case for Lagom</h2>
+          <p class="blog-card-excerpt">The U.S. is short more than 6.5 million homes. That gap represents both a social crisis and a compelling investment thesis. Here's how Lagom is positioned to address both.</p>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+        </div>
+      </article>
+
+    </div>
+    <p class="blog-coming-soon">Full articles coming soon. <a href="#" onclick="showPage('contact')">Contact us</a> to be notified when we publish.</p>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
       <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
       <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
