@@ -1157,7 +1157,7 @@
               <p><strong>Beautiful Greene County setting</strong> — 53 acres with natural landscape and community greenspace.</p>
             </div>
           </div>
-          <a href="#" class="btn btn-primary" onclick="showPage('contact')">Register Interest</a>
+          <a href="#" class="btn btn-primary" onclick="showPage('oakdale-contact')">Register Interest</a>
         </div>
       </div>
     </div>
@@ -1200,7 +1200,7 @@
     <h2>Interested in Oakdale Forest?</h2>
     <p>Phase 1 homes are now available for purchase. Register your interest and be the first to hear about availability and community updates.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
-      <a href="#" class="btn btn-white" onclick="showPage('contact')">Register Interest</a>
+      <a href="#" class="btn btn-white" onclick="showPage('oakdale-contact')">Register Interest</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('projects')">View Bluebird Lane</a>
     </div>
   </section>
@@ -1211,6 +1211,83 @@
       <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
       <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: OAKDALE FOREST CONTACT
+═══════════════════════════════════════ -->
+<div class="page" id="page-oakdale-contact">
+  <div class="contact-hero">
+    <div class="label" style="justify-content: center;">Oakdale Forest · Greensboro, GA</div>
+    <h1>Register Your Interest</h1>
+    <p>Phase 1 homes are now available for purchase. Reach out to our Oakdale team to learn more.</p>
+  </div>
+
+  <div class="contact-body">
+    <div class="contact-info">
+      <h2>Talk to our Oakdale team</h2>
+      <p>Gabby is your dedicated contact for Oakdale Forest — she can answer questions about available homes, pricing, and next steps toward ownership.</p>
+      <div class="contact-items">
+        <a href="tel:4043048317" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 5.86 5.86l.85-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><strong>(404) 304-8317</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Gabby — Oakdale Sales</span></div>
+        </a>
+        <a href="mailto:gabby@lagomdevelopment.com" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><strong>gabby@lagomdevelopment.com</strong><br><span style="color: var(--mist); font-size: 0.8rem;">We reply within 24 hours</span></div>
+        </a>
+        <div class="contact-item" style="cursor: default;">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="white"/></svg></div>
+          <div><strong>Greensboro, Georgia</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Oakdale Forest · Greene County</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <h2>Send us a message</h2>
+        <p style="font-size: 0.9rem; color: var(--mist); margin-bottom: 0.5rem;">Tell us a little about yourself and we'll be in touch.</p>
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" id="oak-name" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="oak-email" placeholder="jane@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" id="oak-phone" placeholder="(404) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>I'm interested in…</label>
+          <select id="oak-interest">
+            <option value="">Select one</option>
+            <option>2 Bedroom Cottage — from $249,000</option>
+            <option>3 Bedroom Cottage — pricing coming soon</option>
+            <option>General information about Oakdale Forest</option>
+            <option>Investment opportunities</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="oak-message" placeholder="Tell us about what you're looking for…"></textarea>
+        </div>
+        <div class="form-success" id="oak-form-success">✓ Thank you! Gabby will be in touch within 24 hours.</div>
+        <button class="btn btn-primary" onclick="submitOakdaleForm()" style="width: 100%; justify-content: center;">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Oakdale Forest</h4><a href="tel:4043048317">(404) 304-8317</a><a href="mailto:gabby@lagomdevelopment.com">gabby@lagomdevelopment.com</a></div>
     </div>
     <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
   </footer>
@@ -1427,7 +1504,7 @@
   </footer>
 </div>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 
 </body>
 </html>
