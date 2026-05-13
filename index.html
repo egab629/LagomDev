@@ -43,6 +43,7 @@
       </li>
       <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>
       <li><a href="#" class="cta" onclick="showPage('contact')">Contact Us</a></li>
+      <li><a href="#" class="cta" onclick="showPage('contact-sales')">Contact Sales</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()" id="hamburger">
       <span></span><span></span><span></span>
@@ -65,6 +66,7 @@
   <a href="#" class="mobile-sub" onclick="showPage('oakdale'); toggleMenu()">Oakdale Forest</a>
   <a href="#" onclick="showPage('faqs'); toggleMenu()">FAQs</a>
   <a href="#" onclick="showPage('contact'); toggleMenu()">Contact Us</a>
+  <a href="#" onclick="showPage('contact-sales'); toggleMenu()">Contact Sales</a>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1363,6 +1365,83 @@
 </div>
 
 <!-- ═══════════════════════════════════════
+     PAGE: CONTACT SALES
+═══════════════════════════════════════ -->
+<div class="page" id="page-contact-sales">
+  <div class="contact-hero">
+    <div class="label" style="justify-content: center;">Sales Inquiry</div>
+    <h1>Talk to our Sales Team</h1>
+    <p>Interested in a Lagom home? Our sales team is ready to answer your questions and help you find the right fit.</p>
+  </div>
+
+  <div class="contact-body">
+    <div class="contact-info">
+      <h2>Reach out directly</h2>
+      <p>Whether you're exploring homeownership options at Bluebird Lane or Oakdale Forest, our sales team can walk you through availability, pricing, and next steps.</p>
+      <div class="contact-items">
+        <a href="tel:7708256190" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 5.86 5.86l.85-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><strong>(770) 825-6190</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Schedule a call</span></div>
+        </a>
+        <a href="mailto:admin@lagomdevelopment.com" class="contact-item">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><strong>admin@lagomdevelopment.com</strong><br><span style="color: var(--mist); font-size: 0.8rem;">We reply within 24 hours</span></div>
+        </a>
+        <div class="contact-item" style="cursor: default;">
+          <div class="c-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="white"/></svg></div>
+          <div><strong>Athens &amp; Greensboro, Georgia</strong><br><span style="color: var(--mist); font-size: 0.8rem;">Bluebird Lane &amp; Oakdale Forest</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <h2>Send us a message</h2>
+        <p style="font-size: 0.9rem; color: var(--mist); margin-bottom: 0.5rem;">Tell us a little about yourself and we'll be in touch.</p>
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" id="cs-name" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="cs-email" placeholder="jane@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" id="cs-phone" placeholder="(770) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>I'm interested in…</label>
+          <select id="cs-interest">
+            <option value="">Select one</option>
+            <option>Buying a home at Bluebird Lane</option>
+            <option>Buying a home at Oakdale Forest</option>
+            <option>Investment opportunities</option>
+            <option>General inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="cs-message" placeholder="Tell us a bit about what you're looking for…"></textarea>
+        </div>
+        <div class="form-success" id="cs-form-success">✓ Thank you! We'll be in touch within 24 hours.</div>
+        <button class="btn btn-primary" onclick="submitSalesForm()" style="width: 100%; justify-content: center;">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
      PAGE: EXPLORE OUR COMMUNITIES
 ═══════════════════════════════════════ -->
 <div class="page" id="page-communities">
@@ -1431,7 +1510,7 @@
   </footer>
 </div>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 
 </body>
 </html>
