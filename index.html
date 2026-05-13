@@ -359,13 +359,15 @@
         </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card-img" style="background: var(--cream);"></div>
+      <article class="blog-card" onclick="showPage('sips-article')" style="cursor:pointer;">
+        <div class="blog-card-img" style="background: var(--charcoal); display:flex; align-items:center; justify-content:center;">
+          <div style="font-family:var(--font-serif);font-size:3rem;font-weight:600;color:var(--green);opacity:0.4;">SIPs</div>
+        </div>
         <div class="blog-card-body">
-          <span class="blog-tag">SIPs</span>
+          <span class="blog-tag">Construction Innovation · Building Science</span>
           <h2 class="blog-card-title">Why We Build with SIPs — And Why It Changes Everything</h2>
           <p class="blog-card-excerpt">Structural Insulated Panels aren't just a building material. They're a philosophy — faster, stronger, and dramatically more energy-efficient than conventional framing.</p>
-          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>May 2026 · Read Article →</span></div>
         </div>
       </article>
 
@@ -493,6 +495,91 @@
       <p>Learn about our communities, our investment opportunity, or just get in touch.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" class="btn btn-primary">Invest on Wefunder</a>
+        <button class="btn btn-outline" onclick="showPage('contact')">Contact Us</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: SIPS ARTICLE
+═══════════════════════════════════════ -->
+<div class="page" id="page-sips-article">
+
+  <div class="article-hero-img" style="height:420px; background-image:url(''); background-color:var(--charcoal); background-size:cover; background-position:center; margin-top:var(--nav-h); display:flex; align-items:center; justify-content:center;">
+    <div style="font-family:var(--font-serif);font-size:5rem;font-weight:700;color:var(--green);opacity:0.25;letter-spacing:0.05em;">SIPs</div>
+  </div>
+
+  <div class="article-page" style="padding-top:2.5rem;">
+
+    <button class="article-back" onclick="showPage('blog')">← Back to Blog</button>
+
+    <span class="article-tag">Construction Innovation · Building Science</span>
+    <h1 class="article-title">Why We Build with SIPs — And Why It Changes Everything</h1>
+    <p class="article-subtitle">Structural Insulated Panels aren't just a building material. They're a philosophy — faster, stronger, and dramatically more energy-efficient than conventional framing.</p>
+
+    <div class="article-meta">
+      <span>By Lagom Development</span>
+      <span>May 2026</span>
+      <span>7 min read</span>
+    </div>
+
+    <div class="article-stats">
+      <div class="article-stat">
+        <span class="article-stat-number">50%</span>
+        <span class="article-stat-label">Faster structural assembly vs. stick framing</span>
+      </div>
+      <div class="article-stat">
+        <span class="article-stat-number">75%</span>
+        <span class="article-stat-label">Greater energy efficiency over conventional builds</span>
+      </div>
+      <div class="article-stat">
+        <span class="article-stat-number">25%</span>
+        <span class="article-stat-label">Lower construction cost per home</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>Walk a traditional homebuilding jobsite and you will see the same scene that has defined residential construction for generations: stacks of dimensional lumber, a crew sorting and cutting piece by piece in the open air, measurements being called out, adjustments being made, and a structural shell that might take days to rise from a bare foundation. It is a craft, and there is something honest about it. But honesty does not make it efficient. Every cut made in the field is a variable. Every variable is a source of cost. And when that cost is borne by a buyer who is already stretched thin, the craft becomes a burden. At Lagom, we chose a different starting point — not because we are indifferent to tradition, but because we are committed to a result: a better home, built faster, at a price that makes ownership genuinely possible.</p>
+
+      <div class="pull-quote">
+        <p>"A SIP is not a shortcut. It is what happens when a building system is engineered to perform rather than merely assembled to stand."</p>
+      </div>
+
+      <p>Structural Insulated Panels work by combining a rigid foam insulation core — typically expanded polystyrene — bonded under pressure between two structural facing boards. The result is a composite panel that is simultaneously the framing, the insulation, and the air barrier of a wall or roof assembly. What took a crew days to frame and insulate in sequence now arrives at the jobsite pre-engineered, labeled, and ready to install. Exterior walls go up in hours. The structural shell closes faster. Interior trades can start sooner. The entire construction timeline compresses in ways that are not marginal — they are transformational. At Lagom's pace, that compression compounds across every home in every community, turning a speed advantage into a capital advantage and a scheduling advantage into a delivery guarantee.</p>
+
+      <p>The energy performance implications are equally significant, and for homeowners they may matter even more over time. In a conventionally framed wall, insulation is placed between studs — but those studs themselves conduct heat, creating what building scientists call thermal bridging. Every stud is a pathway for energy to escape in winter and enter in summer. Over the life of a home, that invisible inefficiency adds up to thousands of dollars in unnecessary utility costs. A SIP wall eliminates thermal bridging entirely. The continuous insulation layer wraps the structure without interruption, and the tight panel-to-panel connections dramatically reduce air infiltration — the invisible enemy of comfort and efficiency in most new homes. The result is a home that is quieter, more comfortable, and less expensive to operate from the day its first occupant walks through the door.</p>
+
+      <p>For production builders, the argument for SIPs comes down to a word that the industry rarely uses with confidence: predictability. Traditional stick framing introduces variability at every step — lumber quality, crew productivity, weather, measurement error, rework. Each variable is small in isolation and devastating in aggregate across a production schedule of dozens or hundreds of homes. Lagom's panelized system removes those variables at the source. Because panels are manufactured in a controlled factory environment to precise tolerances, the on-site process becomes repeatable in a way that framing crews never can be. Labor requirements drop. Waste drops. Schedule overruns drop. And with each home that is delivered on time and on budget, the cost basis of the next one improves. This is how a construction method becomes a competitive moat.</p>
+
+      <p>Lagom did not adopt SIPs as a feature to market. We adopted them as the foundation of a system designed to make attainable homeownership possible at scale. The Lagom 5 home designs were purpose-built for panelized construction from the first line drawn — not adapted after the fact, not compromised to fit an existing mold. Every wall line, every structural detail, every panel dimension was optimized for speed of manufacture, ease of installation, and long-term performance. When a Lagom home is delivered to a buyer, they are not receiving a conventional home built a little more efficiently. They are receiving the output of a fully integrated delivery platform where manufacturing discipline, design intelligence, and construction science have been working in concert since before a single panel was cut. That is what it means to build smarter. And that is what it means to build with Lagom.</p>
+    </div>
+
+    <div class="article-tags">
+      <span class="article-tag-pill">SIPs</span>
+      <span class="article-tag-pill">Building Science</span>
+      <span class="article-tag-pill">Panelized Construction</span>
+      <span class="article-tag-pill">Energy Efficiency</span>
+      <span class="article-tag-pill">Lagom Panel</span>
+      <span class="article-tag-pill">Attainable Housing</span>
+    </div>
+
+    <div class="article-cta">
+      <h3>Want to learn more about how we build?</h3>
+      <p>Explore our Why SIPs page or get in touch with the Lagom team.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="showPage('sips')">Why SIPs</button>
         <button class="btn btn-outline" onclick="showPage('contact')">Contact Us</button>
       </div>
     </div>
