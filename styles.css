@@ -931,7 +931,7 @@ footer {
 .oakdale-stat:last-child { border-right: none; }
 .oakdale-stat-n { font-family: var(--font-serif); font-size: 1.9rem; font-weight: 700; color: var(--green); }
 .oakdale-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
-.oakdale-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.oakdale-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: var(--max); margin: 0 auto; padding: 0 2rem 4rem; }
 .oakdale-phase { padding: 2rem 2rem; border-left: 1px solid var(--border); }
 .oakdale-phase:first-child { border-left: none; }
 .oakdale-phase-num { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--green); opacity: 0.25; line-height: 1; }
