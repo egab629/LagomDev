@@ -20,8 +20,10 @@ document.addEventListener('click', function(e) {
 });
 
 function showPage(id) {
+  const target = document.getElementById('page-' + id);
+  if (!target) return;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  target.classList.add('active');
   window.scrollTo(0, 0);
 }
 
