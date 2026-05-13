@@ -924,6 +924,37 @@ footer {
   .project-stats { grid-template-columns: 1fr 1fr; }
 }
 
+/* ─── OAKDALE FOREST ─── */
+.oakdale-stats-strip { display: flex; background: var(--charcoal); }
+.oakdale-stat { flex: 1; padding: 2rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+.oakdale-stat:last-child { border-right: none; }
+.oakdale-stat-n { font-family: var(--font-serif); font-size: 1.9rem; font-weight: 700; color: var(--green); }
+.oakdale-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+.oakdale-phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: var(--max); margin: 3rem auto; padding: 0 2rem; }
+.oakdale-phase { padding: 2rem 2rem; border-left: 1px solid var(--border); }
+.oakdale-phase:first-child { border-left: none; }
+.oakdale-phase-num { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--green); opacity: 0.25; line-height: 1; }
+.oakdale-phase-title { font-weight: 700; font-size: 1rem; color: var(--charcoal); margin: 0.5rem 0 0.25rem; }
+.oakdale-phase-detail { font-size: 0.88rem; color: var(--stone); line-height: 1.5; }
+.oakdale-phase.active .oakdale-phase-num { opacity: 1; }
+.oakdale-phase.active .oakdale-phase-title { color: var(--green); }
+.oakdale-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--green); color: white; border-radius: 20px; padding: 0.2rem 0.7rem; margin-left: 0.5rem; vertical-align: middle; }
+.home-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: var(--max); margin: 0 auto; padding: 0 2rem 4rem; }
+.home-type-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; background: white; }
+.home-type-card h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--charcoal); margin-bottom: 0.5rem; }
+.home-type-card .home-type-price { font-size: 1.5rem; font-weight: 700; color: var(--green); margin-bottom: 1rem; }
+.home-type-card .home-type-detail { font-size: 0.9rem; color: var(--stone); line-height: 1.6; }
+.home-type-spec { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.home-type-spec span { font-size: 0.8rem; color: var(--stone); background: var(--cream); border-radius: 4px; padding: 0.25rem 0.6rem; }
+@media (max-width: 768px) {
+  .oakdale-stats-strip { flex-wrap: wrap; }
+  .oakdale-stat { flex: 1 1 50%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .oakdale-phases { grid-template-columns: 1fr; }
+  .oakdale-phase { border-left: none; border-top: 1px solid var(--border); padding: 1.5rem 0; }
+  .oakdale-phase:first-child { border-top: none; }
+  .home-types-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── ARTICLE PAGE ─── */
 .article-page { max-width: 780px; margin: 0 auto; padding: calc(var(--nav-h) + 3rem) 2rem 5rem; }
 .article-back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--green); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; margin-bottom: 2.5rem; background: none; border: none; padding: 0; }
