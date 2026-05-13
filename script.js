@@ -1,3 +1,11 @@
+// Prevent browser scroll restoration and anchor jumps on SPA
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('load', function() { window.scrollTo(0, 0); });
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href="#"]');
+  if (a) e.preventDefault();
+});
+
 function toggleDropdown(el) {
   const item = el.closest('.has-dropdown');
   const isOpen = item.classList.contains('open');
