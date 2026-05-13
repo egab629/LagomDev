@@ -625,8 +625,9 @@ h2.display em { font-style: italic; color: var(--green-dark); }
 .oakdale-hero {
   padding: calc(var(--nav-h) + 5rem) 2rem 5rem;
   background-color: var(--charcoal);
-  /* TODO: replace with Oakdale Forest hero photo */
-  background-image: none;
+  background-image: url("https://miro.medium.com/v2/resize:fit:1200/1*ra87FIjbXSC_T31CJjKe-g.jpeg");
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 .oakdale-hero::before {
