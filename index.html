@@ -371,13 +371,13 @@
         </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card-img" style="background: var(--cream);"></div>
+      <article class="blog-card" onclick="showPage('walkable')" style="cursor:pointer;">
+        <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80'); background-size:cover; background-position:center;"></div>
         <div class="blog-card-body">
-          <span class="blog-tag">Community</span>
+          <span class="blog-tag">Community Design · Neighborhood Planning</span>
           <h2 class="blog-card-title">What Makes a Neighborhood Walkable — And Why It Matters</h2>
           <p class="blog-card-excerpt">Walkability isn't just a design preference. It's tied to health outcomes, community connection, and long-term property value. We build with it at the center of every decision.</p>
-          <div class="blog-card-meta"><span>Lagom Development</span><span>Coming Soon</span></div>
+          <div class="blog-card-meta"><span>Lagom Development</span><span>May 2026 · Read Article →</span></div>
         </div>
       </article>
 
@@ -578,6 +578,89 @@
       <p>Explore our Why SIPs page or get in touch with the Lagom team.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <button class="btn btn-primary" onclick="showPage('sips')">Why SIPs</button>
+        <button class="btn btn-outline" onclick="showPage('contact')">Contact Us</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: WALKABLE ARTICLE
+═══════════════════════════════════════ -->
+<div class="page" id="page-walkable">
+
+  <div class="article-hero-img" style="height:420px; background-image:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center; margin-top:var(--nav-h);"></div>
+
+  <div class="article-page" style="padding-top:2.5rem;">
+
+    <button class="article-back" onclick="showPage('blog')">← Back to Blog</button>
+
+    <span class="article-tag">Community Design · Neighborhood Planning</span>
+    <h1 class="article-title">What Makes a Neighborhood Walkable — And Why It Matters</h1>
+    <p class="article-subtitle">Walkability isn't just a design preference. It's tied to health outcomes, community connection, and long-term property value. We build with it at the center of every decision.</p>
+
+    <div class="article-meta">
+      <span>By Lagom Development</span>
+      <span>May 2026</span>
+      <span>8 min read</span>
+    </div>
+
+    <div class="article-stats">
+      <div class="article-stat">
+        <span class="article-stat-number">24%</span>
+        <span class="article-stat-label">Higher property values in walkable neighborhoods</span>
+      </div>
+      <div class="article-stat">
+        <span class="article-stat-number">$5K+</span>
+        <span class="article-stat-label">Annual transportation savings per household</span>
+      </div>
+      <div class="article-stat">
+        <span class="article-stat-number">35%</span>
+        <span class="article-stat-label">Lower rates of chronic disease in walkable communities</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <p>Ask someone to describe their ideal neighborhood and they will rarely reach for the language of urban planning. They will talk about being able to walk to a park with their kids on a Saturday morning, or knowing their neighbors by name, or feeling safe enough to leave the car in the driveway for a day without it mattering. These are not luxury preferences. They are the natural expectations of people who want to feel at home in the place where they live — connected to it, comfortable in it, capable of moving through it on their own terms. And yet the dominant model of residential development built across America for the last several decades systematically designed those expectations out. Walkability was treated as a premium feature reserved for urban cores and high-end master-planned communities, while the subdivisions built for working families optimized relentlessly for the car and left everything else behind. Lagom was founded in part to correct that mistake.</p>
+
+      <div class="pull-quote">
+        <p>"Walkability is not an amenity you add at the end of a site plan. It is a decision you make — or fail to make — before the first lot line is drawn."</p>
+      </div>
+
+      <p>True walkability is not a single design element. It is the accumulated effect of dozens of decisions made at the planning stage, most of which are invisible to residents who benefit from them and equally invisible in their absence. Street widths that slow traffic and return the road to the pedestrian rather than the vehicle. Shallow setbacks that bring porches and windows close to the sidewalk, so the street feels inhabited rather than empty. Path networks that connect homes to green space, gardens, and gathering areas without threading through a parking lot or a dead end. The placement of community gardens and shared outdoor space as connective tissue rather than decorative filler, positioned to draw people out of their homes and into incidental contact with their neighbors. None of these choices are complicated in isolation. What is uncommon is the discipline to make all of them together, consistently, before the economics of a project apply pressure to abandon them.</p>
+
+      <p>The research on what walkable design produces is no longer in question. Communities built for pedestrian movement generate residents who are measurably healthier — more physically active, less prone to the chronic conditions that sedentary, car-dependent environments accelerate, and more socially connected in ways that have independent effects on longevity and mental health. Children in walkable neighborhoods develop independence and peer relationships that suburban layouts built around cul-de-sacs and school drop-off lines actively suppress. Older residents age in place longer. Social trust — the kind that makes a neighborhood feel safe, that makes people look out for one another — is built through the repeated low-stakes interactions that happen when people share sidewalks, front yards, and common green space over time. You cannot engineer those interactions into existence with a community events calendar. You have to build the physical conditions that make them possible.</p>
+
+      <p>The financial dimension of walkability is equally well established, and for buyers at Lagom's target price point it carries particular weight. Walkable neighborhoods command a consistent premium in resale markets — not because walkability signals affluence, but because the market correctly recognizes what it delivers: lower transportation costs, stronger community stability, and long-term desirability that car-dependent subdivisions struggle to maintain as they age. For a working family purchasing a home priced meaningfully below local new-construction medians, the ability to reduce dependence on a second vehicle, or to eliminate routine car trips entirely, represents thousands of dollars of annual financial relief. Walkability, properly understood, is not a design flourish added on top of affordability. It is a component of total-cost homeownership — one that most attainable housing has historically sacrificed in the name of short-term land economics.</p>
+
+      <p>At Lagom, community layout is not a downstream decision made after the homes are designed. It is where every project begins. Green space is sized and positioned to serve as a destination, not a buffer. Lot configurations are oriented to encourage engagement with the street rather than retreat from it. Paths are planned before utilities, because movement patterns shape everything else that follows. The communities we build are modest in their amenity footprint by design — we are not chasing resort-style features that inflate costs without improving daily life. What we are chasing is the quieter, more durable standard of a place that works for the people who live in it: where a walk after dinner is easy, where children have room to roam, and where neighbors become something more than strangers who share a zip code. That is what attainable homeownership should feel like. And that is the standard against which we measure every community we build.</p>
+    </div>
+
+    <div class="article-tags">
+      <span class="article-tag-pill">Walkability</span>
+      <span class="article-tag-pill">Community Design</span>
+      <span class="article-tag-pill">Human-Scale Planning</span>
+      <span class="article-tag-pill">Health &amp; Housing</span>
+      <span class="article-tag-pill">Lagom Development</span>
+      <span class="article-tag-pill">Attainable Communities</span>
+    </div>
+
+    <div class="article-cta">
+      <h3>Interested in what we're building?</h3>
+      <p>Learn about our communities, our investment opportunity, or just get in touch.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="https://wefunder.com/lagom.development" target="_blank" rel="noopener" class="btn btn-primary">Invest on Wefunder</a>
         <button class="btn btn-outline" onclick="showPage('contact')">Contact Us</button>
       </div>
     </div>
