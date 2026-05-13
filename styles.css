@@ -209,7 +209,7 @@ nav {
   color: var(--green); margin-bottom: 1rem;
   display: flex; align-items: center; gap: 8px;
 }
-.label::before { content: ''; width: 24px; height: 1px; background: var(--green); }
+.label::before { content: none; }
 h2.display {
   font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600; color: var(--charcoal); line-height: 1.2;
