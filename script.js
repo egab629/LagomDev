@@ -35,29 +35,6 @@ function toggleFaq(btn) {
   if (!wasOpen) item.classList.add('open');
 }
 
-function submitOakdaleForm() {
-  const name = document.getElementById('oak-name').value.trim();
-  const email = document.getElementById('oak-email').value.trim();
-  if (!name || !email) { alert('Please fill in your name and email.'); return; }
-  const phone = document.getElementById('oak-phone').value.trim();
-  const interest = document.getElementById('oak-interest').value;
-  const message = document.getElementById('oak-message').value.trim();
-  const subject = encodeURIComponent('Oakdale Forest Inquiry — ' + name);
-  const body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    (phone ? 'Phone: ' + phone + '\n' : '') +
-    (interest ? 'Interest: ' + interest + '\n' : '') +
-    (message ? '\nMessage:\n' + message : '')
-  );
-  window.location.href = 'mailto:gabby@lagomdevelopment.com?subject=' + subject + '&body=' + body;
-  document.getElementById('oak-form-success').style.display = 'block';
-  document.getElementById('oak-name').value = '';
-  document.getElementById('oak-email').value = '';
-  document.getElementById('oak-phone').value = '';
-  document.getElementById('oak-interest').value = '';
-  document.getElementById('oak-message').value = '';
-}
 
 function submitForm() {
   const name = document.getElementById('cf-name').value.trim();
