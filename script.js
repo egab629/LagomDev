@@ -51,7 +51,7 @@ function submitSalesForm() {
     (interest ? 'Interest: ' + interest + '\n' : '') +
     (message ? '\nMessage:\n' + message : '')
   );
-  window.location.href = 'mailto:admin@lagomdevelopment.com?subject=' + subject + '&body=' + body;
+  window.location.href = 'mailto:gabby@lagomdevelopment.com?subject=' + subject + '&body=' + body;
   document.getElementById('cs-form-success').style.display = 'block';
   document.getElementById('cs-name').value = '';
   document.getElementById('cs-email').value = '';
