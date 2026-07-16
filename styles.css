@@ -1090,6 +1090,33 @@ footer {
   .catalog-grid { grid-template-columns: 1fr; }
 }
 
+/* ─── INDIVIDUAL MODEL PAGES ─── */
+.model-hero {
+  background: var(--charcoal);
+  padding: calc(var(--nav-h) + 5rem) 2rem 5rem;
+  text-align: center;
+}
+.model-hero-inner { max-width: 640px; margin: 0 auto; }
+.model-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  color: white;
+  line-height: 1.15;
+  margin: 0.5rem 0 1rem;
+}
+.model-hero p { color: rgba(255,255,255,0.6); font-size: 1.05rem; }
+.model-stats-strip { display: flex; background: var(--green-deep); }
+.model-stat { flex: 1; padding: 2rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+.model-stat:last-child { border-right: none; }
+.model-stat-n { font-family: var(--font-serif); font-size: 1.9rem; font-weight: 700; color: white; }
+.model-stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+.model-features { display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; }
+@media (max-width: 600px) {
+  .model-stats-strip { flex-wrap: wrap; }
+  .model-stat { flex: 1 1 50%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+}
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
