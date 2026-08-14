@@ -1170,3 +1170,44 @@ footer {
   }
   .model-feature-photo { height: 260px; }
 }
+
+/* Model prev/next navigation */
+.model-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.model-nav-counter {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mist);
+}
+.model-nav-prev,
+.model-nav-next {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--green-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.model-nav-prev:hover,
+.model-nav-next:hover { color: var(--green-deep); }
+.model-nav-prev svg,
+.model-nav-next svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
