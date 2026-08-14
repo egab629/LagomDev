@@ -1132,3 +1132,41 @@ footer {
 .page.active .hero h1 { animation-delay: 0.2s; }
 .page.active .hero-sub { animation-delay: 0.3s; }
 .page.active .hero-actions { animation-delay: 0.4s; }
+
+/* Model feature photo — full bleed */
+.model-feature-photo {
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+.model-feature-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Model about section — text + thumbnail side by side */
+.model-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 4rem;
+  align-items: start;
+}
+.model-about-thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+@media (max-width: 760px) {
+  .model-about-grid {
+    grid-template-columns: 1fr;
+  }
+  .model-about-thumb {
+    display: none;
+  }
+  .model-feature-photo { height: 260px; }
+}
