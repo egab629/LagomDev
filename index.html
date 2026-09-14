@@ -34,14 +34,17 @@
         </ul>
       </li>
       <li><a href="#" onclick="showPage('sips')">Why SIPs</a></li>
+      <!-- PROJECTS DROPDOWN HIDDEN
       <li class="has-dropdown">
         <a href="#" class="dropdown-toggle" onclick="toggleDropdown(this); return false;">Projects <svg viewBox="0 0 24 24" class="chevron"><polyline points="6 9 12 15 18 9"/></svg></a>
         <ul class="dropdown">
           <li><a href="#" onclick="showPage('communities'); toggleDropdown(this)">Explore Our Communities</a></li>
-          <!-- <li><a href="#" onclick="showPage('projects'); toggleDropdown(this)">Bluebird Lane</a></li> -->
+          <li><a href="#" onclick="showPage('projects'); toggleDropdown(this)">Bluebird Lane</a></li>
           <li><a href="#" onclick="showPage('oakdale'); toggleDropdown(this)">Oakdale Forest</a></li>
         </ul>
       </li>
+      END PROJECTS DROPDOWN HIDDEN -->
+      <li><a href="#" onclick="showPage('catalog')">Home Catalog</a></li>
       <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>
       <li><a href="#" class="cta" onclick="showPage('contact')">Contact Us</a></li>
     </ul>
@@ -62,10 +65,13 @@
   <a href="#" class="mobile-sub" onclick="showPage('invest'); toggleMenu()">Invest in Lagom</a>
 
   <a href="#" onclick="showPage('sips'); toggleMenu()">Why SIPs</a>
+  <!-- PROJECTS MOBILE HIDDEN
   <a href="#" class="mobile-parent" onclick="return false;">Projects</a>
   <a href="#" class="mobile-sub" onclick="showPage('communities'); toggleMenu()">Explore Our Communities</a>
-  <!-- <a href="#" class="mobile-sub" onclick="showPage('projects'); toggleMenu()">Bluebird Lane</a> -->
+  <a href="#" class="mobile-sub" onclick="showPage('projects'); toggleMenu()">Bluebird Lane</a>
   <a href="#" class="mobile-sub" onclick="showPage('oakdale'); toggleMenu()">Oakdale Forest</a>
+  END PROJECTS MOBILE HIDDEN -->
+  <a href="#" onclick="showPage('catalog'); toggleMenu()">Home Catalog</a>
   <a href="#" onclick="showPage('faqs'); toggleMenu()">FAQs</a>
   <a href="#" onclick="showPage('contact'); toggleMenu()">Contact Us</a>
 </div>
@@ -82,8 +88,7 @@
         <h1>We build homes that<br><em>build futures</em></h1>
         <p class="hero-sub">An integrated housing company creating walkable, human-scale neighborhoods for working families across the Southeast — built with high-performance SIPs and designed to last.</p>
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary" onclick="showPage('communities')">Explore Our Communities</a>
-          <a href="#" class="btn btn-outline" onclick="showPage('mission')">Our Mission</a>
+          <a href="#" class="btn btn-primary" onclick="showPage('mission')">Our Mission</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -92,12 +97,12 @@
           <div class="stat-label">Home shortage across the U.S. — we're fixing it</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">186</div>
-          <div class="stat-label">Cottage-style homes in our flagship Oakdale Forest community</div>
+          <div class="stat-num">50%</div>
+          <div class="stat-label">Energy savings with high-performance SIPs vs. traditional construction</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">53 ac</div>
-          <div class="stat-label">Walkable neighborhood designed for people, not cars</div>
+          <div class="stat-num">1,000+</div>
+          <div class="stat-label">Attainable homes planned across the Southeast</div>
         </div>
       </div>
     </div>
@@ -1298,7 +1303,7 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     PAGE: PROJECTS — OAKDALE FOREST
+     PAGE: PROJECTS — OAKDALE FOREST (HIDDEN)
 ═══════════════════════════════════════ -->
 <div class="page" id="page-oakdale">
 
@@ -1737,7 +1742,7 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     PAGE: EXPLORE OUR COMMUNITIES
+     PAGE: EXPLORE OUR COMMUNITIES (HIDDEN)
 ═══════════════════════════════════════ -->
 <div class="page" id="page-communities">
   <div class="communities-hero">
@@ -1798,6 +1803,433 @@
     <div class="footer-inner">
       <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
       <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: HOME CATALOG
+═══════════════════════════════════════ -->
+<div class="page" id="page-catalog">
+
+  <!-- HERO -->
+  <div class="catalog-hero">
+    <div class="catalog-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Our Home Models</div>
+      <h1>The Lagom 5</h1>
+      <p>Five SIPs-built models designed for attainable, energy-efficient living — thoughtfully planned for real families across the Southeast.</p>
+      <a href="https://drive.google.com/file/d/1Pdlpre4akbkrzEX2JRQHMPLKYmvtKk7r/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-white" style="margin-top: 2rem; display: inline-flex;">Download Full Catalog</a>
+    </div>
+  </div>
+
+  <!-- MODEL GRID -->
+  <div class="section" style="max-width: var(--max); margin: 0 auto;">
+    <div class="label">Available Models</div>
+    <h2 class="display">Find your <em>perfect fit</em></h2>
+    <p class="lead">Each model is engineered with high-performance SIPs panels for superior energy efficiency, faster build times, and lasting durability.</p>
+
+    <div class="catalog-grid">
+
+      <!-- MODEL 1 -->
+      <div class="catalog-card">
+        <div class="catalog-badge">01</div>
+        <h3>Model 1</h3>
+        <div class="catalog-specs">
+          <span class="catalog-spec">3 Bed</span>
+          <span class="catalog-spec">2 Bath</span>
+          <span class="catalog-spec">1,493 sq ft</span>
+          <span class="catalog-spec">62′ × 26′</span>
+        </div>
+        <p class="catalog-detail">Designed for comfortable everyday living, this thoughtfully planned home features an open-concept layout, spacious gathering areas, and private bedroom retreats, bringing together style, functionality, and lasting value.</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('model1')">View Model 1</a>
+      </div>
+
+      <!-- MODEL 2 -->
+      <div class="catalog-card">
+        <div class="catalog-badge">02</div>
+        <h3>Model 2</h3>
+        <div class="catalog-specs">
+          <span class="catalog-spec">3 Bed</span>
+          <span class="catalog-spec">2 Bath</span>
+          <span class="catalog-spec">1,400 sq ft</span>
+          <span class="catalog-spec">43′ × 45′</span>
+        </div>
+        <p class="catalog-detail">Designed for modern family living, this thoughtfully planned home combines open gathering spaces, comfortable private bedrooms, and smart everyday functionality in an efficient footprint.</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('model2')">View Model 2</a>
+      </div>
+
+      <!-- MODEL 3 -->
+      <div class="catalog-card">
+        <div class="catalog-badge">03</div>
+        <h3>Model 3</h3>
+        <div class="catalog-specs">
+          <span class="catalog-spec">2 Bed</span>
+          <span class="catalog-spec">2 Bath</span>
+          <span class="catalog-spec">1,200 sq ft</span>
+          <span class="catalog-spec">49′ × 32′</span>
+        </div>
+        <p class="catalog-detail">Thoughtfully designed for comfortable everyday living, this efficient two-bedroom home features open-concept spaces, abundant natural light, and a private primary suite — all in a smart, easy-to-maintain layout.</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('model3')">View Model 3</a>
+      </div>
+
+      <!-- MODEL 4 -->
+      <div class="catalog-card">
+        <div class="catalog-badge">04</div>
+        <h3>Model 4</h3>
+        <div class="catalog-specs">
+          <span class="catalog-spec">3 Bed</span>
+          <span class="catalog-spec">2 Bath</span>
+          <span class="catalog-spec">1,176 sq ft</span>
+          <span class="catalog-spec">47′ × 28′</span>
+        </div>
+        <p class="catalog-detail">Designed for growing families, this thoughtfully planned home offers three comfortable bedrooms, open-concept living, and functional spaces that make everyday life effortless.</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('model4')">View Model 4</a>
+      </div>
+
+      <!-- MODEL 5 -->
+      <div class="catalog-card">
+        <div class="catalog-badge">05</div>
+        <h3>Model 5</h3>
+        <div class="catalog-specs">
+          <span class="catalog-spec">3 Bed</span>
+          <span class="catalog-spec">2 Bath</span>
+          <span class="catalog-spec">1,277 sq ft</span>
+          <span class="catalog-spec">50′ × 29′</span>
+        </div>
+        <p class="catalog-detail">Designed for modern family living, this spacious home features an open-concept layout, a private primary suite, and thoughtfully designed spaces that bring comfort and functionality together.</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('model5')">View Model 5</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Ready to build your Lagom home?</h2>
+    <p>Get in touch and we'll help you find the right model for your family and your land.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="https://drive.google.com/file/d/1Pdlpre4akbkrzEX2JRQHMPLKYmvtKk7r/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);">Download Full Catalog</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MODEL 1
+═══════════════════════════════════════ -->
+<div class="page" id="page-model1">
+  <div class="model-hero">
+    <div class="model-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Model 01</div>
+      <h1>Model 1</h1>
+      <p>3 Bed &middot; 2 Bath &middot; 1,493 sq ft &middot; 62′ &times; 26′</p>
+    </div>
+  </div>
+  <div class="model-stats-strip">
+    <div class="model-stat"><div class="model-stat-n">3</div><div class="model-stat-l">Bedrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bathrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">1,493</div><div class="model-stat-l">Square Feet</div></div>
+    <div class="model-stat"><div class="model-stat-n">62′ × 26′</div><div class="model-stat-l">Dimensions</div></div>
+  </div>
+  <div class="model-feature-photo">
+    <img src="model1-img.jpg" alt="Model 1">
+  </div>
+  <div class="section model-about-section" style="max-width: 1000px; margin: 0 auto;">
+    <div class="model-about-grid">
+      <div class="model-about-text">
+        <div class="label">About this home</div>
+        <h2 class="display">Designed for <em>everyday living</em></h2>
+        <p class="lead">Designed for comfortable everyday living, this thoughtfully planned home features an open-concept layout, spacious gathering areas, and private bedroom retreats, bringing together style, functionality, and lasting value.</p>
+        <div class="feature-list" style="margin-top: 2.5rem;">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Open-concept layout</strong> — spacious gathering areas designed for how families actually live.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Private bedroom retreats</strong> — well-separated sleeping areas for comfort and privacy.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>SIPs construction</strong> — high-performance structural insulated panels for superior energy efficiency and durability.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Lasting value</strong> — designed for low maintenance and long-term homeowner satisfaction.</p></div>
+        </div>
+      </div>
+      <div class="model-about-thumb">
+        <img src="model1.jpg" alt="Model 1 floor plan">
+      </div>
+    </div>
+  </div>
+  <div class="model-nav">
+    <span class="model-nav-prev"></span>
+    <span class="model-nav-counter">Model 1 of 5</span>
+    <a href="#" class="model-nav-next" onclick="showPage('model2')">Model 2 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </div>
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Interested in Model 1?</h2>
+    <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MODEL 2
+═══════════════════════════════════════ -->
+<div class="page" id="page-model2">
+  <div class="model-hero">
+    <div class="model-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Model 02</div>
+      <h1>Model 2</h1>
+      <p>3 Bed &middot; 2 Bath &middot; 1,400 sq ft &middot; 43′ &times; 45′</p>
+    </div>
+  </div>
+  <div class="model-stats-strip">
+    <div class="model-stat"><div class="model-stat-n">3</div><div class="model-stat-l">Bedrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bathrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">1,400</div><div class="model-stat-l">Square Feet</div></div>
+    <div class="model-stat"><div class="model-stat-n">43′ × 45′</div><div class="model-stat-l">Dimensions</div></div>
+  </div>
+  <div class="model-feature-photo">
+    <img src="model2-img.jpg" alt="Model 2">
+  </div>
+  <div class="section model-about-section" style="max-width: 1000px; margin: 0 auto;">
+    <div class="model-about-grid">
+      <div class="model-about-text">
+        <div class="label">About this home</div>
+        <h2 class="display">Built for <em>modern families</em></h2>
+        <p class="lead">Designed for modern family living, this thoughtfully planned home combines open gathering spaces, comfortable private bedrooms, and smart everyday functionality in an efficient footprint.</p>
+        <div class="feature-list" style="margin-top: 2.5rem;">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Open gathering spaces</strong> — designed for connection, entertaining, and everyday family life.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Comfortable private bedrooms</strong> — three well-proportioned rooms with privacy in mind.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Smart functionality</strong> — thoughtfully planned spaces that reduce friction in daily routines.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>SIPs construction</strong> — high-performance structural insulated panels for superior energy efficiency and durability.</p></div>
+        </div>
+      </div>
+      <div class="model-about-thumb">
+        <img src="model2.jpg" alt="Model 2 floor plan">
+      </div>
+    </div>
+  </div>
+  <div class="model-nav">
+    <a href="#" class="model-nav-prev" onclick="showPage('model1')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Model 1</a>
+    <span class="model-nav-counter">Model 2 of 5</span>
+    <a href="#" class="model-nav-next" onclick="showPage('model3')">Model 3 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </div>
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Interested in Model 2?</h2>
+    <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MODEL 3
+═══════════════════════════════════════ -->
+<div class="page" id="page-model3">
+  <div class="model-hero">
+    <div class="model-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Model 03</div>
+      <h1>Model 3</h1>
+      <p>2 Bed &middot; 2 Bath &middot; 1,200 sq ft &middot; 49′ &times; 32′</p>
+    </div>
+  </div>
+  <div class="model-stats-strip">
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bedrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bathrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">1,200</div><div class="model-stat-l">Square Feet</div></div>
+    <div class="model-stat"><div class="model-stat-n">49′ × 32′</div><div class="model-stat-l">Dimensions</div></div>
+  </div>
+  <div class="model-feature-photo">
+    <img src="model3-img.jpg" alt="Model 3">
+  </div>
+  <div class="section model-about-section" style="max-width: 1000px; margin: 0 auto;">
+    <div class="model-about-grid">
+      <div class="model-about-text">
+        <div class="label">About this home</div>
+        <h2 class="display">Efficient design, <em>no compromises</em></h2>
+        <p class="lead">Thoughtfully designed for comfortable everyday living, this efficient two-bedroom home features open-concept spaces, abundant natural light, and a private primary suite — all in a smart, easy-to-maintain layout.</p>
+        <div class="feature-list" style="margin-top: 2.5rem;">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Open-concept spaces</strong> — a layout that feels larger than its footprint.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Abundant natural light</strong> — thoughtfully placed windows that brighten every room.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Private primary suite</strong> — a comfortable retreat separate from the main living areas.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>SIPs construction</strong> — high-performance structural insulated panels for superior energy efficiency and durability.</p></div>
+        </div>
+      </div>
+      <div class="model-about-thumb">
+        <img src="model3.jpg" alt="Model 3 floor plan">
+      </div>
+    </div>
+  </div>
+  <div class="model-nav">
+    <a href="#" class="model-nav-prev" onclick="showPage('model2')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Model 2</a>
+    <span class="model-nav-counter">Model 3 of 5</span>
+    <a href="#" class="model-nav-next" onclick="showPage('model4')">Model 4 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </div>
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Interested in Model 3?</h2>
+    <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MODEL 4
+═══════════════════════════════════════ -->
+<div class="page" id="page-model4">
+  <div class="model-hero">
+    <div class="model-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Model 04</div>
+      <h1>Model 4</h1>
+      <p>3 Bed &middot; 2 Bath &middot; 1,176 sq ft &middot; 47′ &times; 28′</p>
+    </div>
+  </div>
+  <div class="model-stats-strip">
+    <div class="model-stat"><div class="model-stat-n">3</div><div class="model-stat-l">Bedrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bathrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">1,176</div><div class="model-stat-l">Square Feet</div></div>
+    <div class="model-stat"><div class="model-stat-n">47′ × 28′</div><div class="model-stat-l">Dimensions</div></div>
+  </div>
+  <div class="model-feature-photo">
+    <img src="model4-img.jpg" alt="Model 4">
+  </div>
+  <div class="section model-about-section" style="max-width: 1000px; margin: 0 auto;">
+    <div class="model-about-grid">
+      <div class="model-about-text">
+        <div class="label">About this home</div>
+        <h2 class="display">Room for the <em>whole family</em></h2>
+        <p class="lead">Designed for growing families, this thoughtfully planned home offers three comfortable bedrooms, open-concept living, and functional spaces that make everyday life effortless.</p>
+        <div class="feature-list" style="margin-top: 2.5rem;">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Three bedrooms</strong> — room for everyone, designed with growing families in mind.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Open-concept living</strong> — a connected layout that keeps the family together.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Functional spaces</strong> — every square foot is purposeful, nothing wasted.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>SIPs construction</strong> — high-performance structural insulated panels for superior energy efficiency and durability.</p></div>
+        </div>
+      </div>
+      <div class="model-about-thumb">
+        <img src="model4.jpg" alt="Model 4 floor plan">
+      </div>
+    </div>
+  </div>
+  <div class="model-nav">
+    <a href="#" class="model-nav-prev" onclick="showPage('model3')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Model 3</a>
+    <span class="model-nav-counter">Model 4 of 5</span>
+    <a href="#" class="model-nav-next" onclick="showPage('model5')">Model 5 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </div>
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Interested in Model 4?</h2>
+    <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: MODEL 5
+═══════════════════════════════════════ -->
+<div class="page" id="page-model5">
+  <div class="model-hero">
+    <div class="model-hero-inner">
+      <div class="label" style="color: var(--green); justify-content: center;">Model 05</div>
+      <h1>Model 5</h1>
+      <p>3 Bed &middot; 2 Bath &middot; 1,277 sq ft &middot; 50′ &times; 29′</p>
+    </div>
+  </div>
+  <div class="model-stats-strip">
+    <div class="model-stat"><div class="model-stat-n">3</div><div class="model-stat-l">Bedrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">2</div><div class="model-stat-l">Bathrooms</div></div>
+    <div class="model-stat"><div class="model-stat-n">1,277</div><div class="model-stat-l">Square Feet</div></div>
+    <div class="model-stat"><div class="model-stat-n">50′ × 29′</div><div class="model-stat-l">Dimensions</div></div>
+  </div>
+  <div class="model-feature-photo">
+    <img src="model5-img.jpg" alt="Model 5">
+  </div>
+  <div class="section model-about-section" style="max-width: 1000px; margin: 0 auto;">
+    <div class="model-about-grid">
+      <div class="model-about-text">
+        <div class="label">About this home</div>
+        <h2 class="display">Space, comfort, <em>and purpose</em></h2>
+        <p class="lead">Designed for modern family living, this spacious home features an open-concept layout, a private primary suite, and thoughtfully designed spaces that bring comfort and functionality together.</p>
+        <div class="feature-list" style="margin-top: 2.5rem;">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Open-concept layout</strong> — a flowing floor plan that maximizes livability.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Private primary suite</strong> — a dedicated retreat thoughtfully separated from secondary bedrooms.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>Purposeful design</strong> — comfort and functionality balanced throughout every room.</p></div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong>SIPs construction</strong> — high-performance structural insulated panels for superior energy efficiency and durability.</p></div>
+        </div>
+      </div>
+      <div class="model-about-thumb">
+        <img src="model5.jpg" alt="Model 5 floor plan">
+      </div>
+    </div>
+  </div>
+  <div class="model-nav">
+    <a href="#" class="model-nav-prev" onclick="showPage('model4')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Model 4</a>
+    <span class="model-nav-counter">Model 5 of 5</span>
+    <span class="model-nav-next"></span>
+  </div>
+  <section class="cta-strip" style="margin-top: 4rem;">
+    <h2>Interested in Model 5?</h2>
+    <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a></div>
       <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
       <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:admin@lagomdevelopment.com">admin@lagomdevelopment.com</a></div>
     </div>
