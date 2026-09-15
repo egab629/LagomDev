@@ -890,6 +890,7 @@ footer {
   position: fixed; inset: 0; top: var(--nav-h); z-index: 99;
   background: var(--warm-white); padding: 2rem;
   flex-direction: column; gap: 0.25rem;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
