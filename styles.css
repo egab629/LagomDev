@@ -1165,9 +1165,6 @@ footer {
   .model-about-grid {
     grid-template-columns: 1fr;
   }
-  .model-about-thumb {
-    display: none;
-  }
   .model-feature-photo { height: 260px; }
 }
 
