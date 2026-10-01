@@ -194,13 +194,6 @@ function populateJobFilters() {
   keepValue(locSel, locs, 'All locations');
 }
 
-function applyLinkFor(job) {
-  if (job.applyLink) return job.applyLink;
-  const subject = encodeURIComponent('Application: ' + job.title);
-  const body = encodeURIComponent('Hi Lagom team,\n\nI\'d like to apply for the ' + job.title + ' role. My resume is attached.\n\n');
-  return 'mailto:via@lagomdevelopment.com?subject=' + subject + '&body=' + body;
-}
-
 function renderJobs() {
   const list = document.getElementById('job-list');
   if (!list) return;
@@ -241,11 +234,80 @@ function renderJobs() {
         ${job.description ? `<p class="job-desc">${escapeHtml(job.description)}</p>` : ''}
       </div>
       <div class="job-card-action">
-        <a class="btn btn-primary" href="${escapeHtml(applyLinkFor(job))}" target="${job.applyLink ? '_blank' : '_self'}" rel="noopener">Apply</a>
-        ${!job.applyLink ? `<a class="job-apply-fallback" href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a>` : ''}
+        ${job.applyLink
+          ? `<a class="btn btn-primary" href="${escapeHtml(job.applyLink)}" target="_blank" rel="noopener">Apply</a>`
+          : `<button type="button" class="btn btn-primary apply-trigger" data-job-title="${escapeHtml(job.title)}">Apply</button>`}
       </div>
     </div>
   `).join('');
+}
+
+/* ═══════════════════════════════════════
+   Application modal — submits via Web3Forms, no mail client required.
+═══════════════════════════════════════ */
+
+document.addEventListener('click', function(e) {
+  const trigger = e.target.closest('.apply-trigger');
+  if (trigger) openApplyModal(trigger.dataset.jobTitle);
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeApplyModal();
+});
+
+function openApplyModal(title) {
+  const form = document.getElementById('applyForm');
+  const backdrop = document.getElementById('applyModalBackdrop');
+  if (!form || !backdrop) return;
+  form.reset();
+  form.style.display = '';
+  document.getElementById('applyModalRole').textContent = title || 'this role';
+  document.getElementById('applyPosition').value = title || 'General Interest';
+  document.getElementById('applySubject').value = 'Website Application: ' + (title || 'General Interest');
+  document.getElementById('apply-success').style.display = 'none';
+  document.getElementById('apply-error').style.display = 'none';
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeApplyModal() {
+  const backdrop = document.getElementById('applyModalBackdrop');
+  if (!backdrop) return;
+  backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function submitApplication(event) {
+  event.preventDefault();
+  const form = event.target;
+  const btn = document.getElementById('apply-submit-btn');
+  const successEl = document.getElementById('apply-success');
+  const errorEl = document.getElementById('apply-error');
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  const formData = new FormData(form);
+  if (formData.get('botcheck')) return; // honeypot tripped — silently drop
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(formData.entries()))
+    });
+    const result = await res.json();
+    if (!result.success) throw new Error(result.message || 'Submission failed');
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+  } catch (err) {
+    console.error('[careers] application submit failed:', err);
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Submit Application';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', fetchJobs);

@@ -2052,8 +2052,44 @@
   <div style="background: var(--cream); padding: 5rem 2rem; text-align: center;">
     <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em;">Don't see the right role?</h2>
     <p style="color: var(--stone); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">We're growing fast and always open to meeting people who believe in what we're building. Send us your resume anyway.</p>
-    <a href="mailto:via@lagomdevelopment.com?subject=General%20Interest%20%E2%80%94%20Resume%20on%20file" class="btn btn-primary">Send Us Your Resume</a>
+    <button type="button" class="btn btn-primary apply-trigger" data-job-title="General Interest">Send Us Your Resume</button>
     <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--mist);">Or email us directly at <a href="mailto:via@lagomdevelopment.com" style="color: var(--green-dark);">via@lagomdevelopment.com</a></p>
+  </div>
+
+  <div class="apply-modal-backdrop" id="applyModalBackdrop" onclick="closeApplyModal()">
+    <div class="apply-modal" onclick="event.stopPropagation()">
+      <button type="button" class="apply-modal-close" onclick="closeApplyModal()" aria-label="Close">&times;</button>
+      <h3>Apply for <span id="applyModalRole">this role</span></h3>
+      <form id="applyForm" onsubmit="submitApplication(event)">
+        <input type="hidden" name="access_key" value="f7dae290-7419-4171-83dd-f4a4a967c819">
+        <input type="hidden" name="subject" id="applySubject" value="">
+        <input type="hidden" name="position" id="applyPosition" value="">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" name="phone">
+        </div>
+        <div class="form-group">
+          <label>Resume link</label>
+          <input type="url" name="resume_link" placeholder="LinkedIn, Google Drive, portfolio, etc.">
+        </div>
+        <div class="form-group">
+          <label>Anything else you'd like us to know?</label>
+          <textarea name="message"></textarea>
+        </div>
+        <div class="form-error" id="apply-error">Something went wrong sending this — please email us directly at <a href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a> instead.</div>
+        <button type="submit" class="btn btn-primary" id="apply-submit-btn" style="width: 100%; justify-content: center;">Submit Application</button>
+      </form>
+      <div class="form-success" id="apply-success">✓ Thanks! We've received your application and will be in touch.</div>
+    </div>
   </div>
 
   <footer>

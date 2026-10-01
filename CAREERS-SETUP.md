@@ -28,9 +28,9 @@ Notes:
 - **Active**: `TRUE`/`FALSE`, `Yes`/`No`, or `Open`/`Closed` all work. Leave the
   column out entirely and every row is treated as open.
 - **Posted** should be a sortable date (`YYYY-MM-DD`); newest shows first.
-- **Apply Link**: leave blank and the Apply button opens a pre-filled email to
-  via@lagomdevelopment.com instead. Fill it in to link to an external
-  application form (e.g. an ATS) instead.
+- **Apply Link**: leave blank and the Apply button opens an on-page application
+  form instead (see below). Fill it in to link to an external application form
+  (e.g. an ATS) instead — opens in a new tab.
 - Column headers are matched loosely — "Job Title", "Team", "City", "Employment
   Type", "Date Posted", "Status", "Summary", "Apply URL" all work too. See the
   `JOB_FIELD_ALIASES` map in `script.js` if you want to add more aliases.
@@ -60,6 +60,23 @@ const JOBS_SHEET_CSV_URL = '...';
 
 Until this is set, the page shows three sample roles (`JOBS_DEMO_DATA` in
 `script.js`) so it never looks broken.
+
+## 3. How applications are delivered
+
+The Apply button opens an on-page modal form (name, email, phone, resume link,
+message) that submits via [Web3Forms](https://web3forms.com/) — no mail client
+required on the applicant's end, unlike a `mailto:` link, which silently does
+nothing if their computer has no default email app configured.
+
+- Submissions email straight to **via@lagomdevelopment.com**, with a subject
+  line naming the role ("Website Application: <role>").
+- The access key lives in `index.html` as a hidden input
+  (`name="access_key"`) inside the `#applyForm` element. It's safe to be
+  public — it only allows sending *to* the registered email, nothing else.
+- To change which inbox receives applications, get a new key for the new
+  address at web3forms.com and swap that hidden input's value.
+- If Web3Forms is ever unreachable, the form shows an inline error with a
+  direct mailto fallback rather than failing silently.
 
 ## Why not Airtable?
 

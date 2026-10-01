@@ -1291,11 +1291,38 @@ footer {
 .job-tag.loc { color: var(--stone); background: var(--cream); border-color: var(--border); }
 .job-desc { font-size: 0.92rem; color: var(--stone); line-height: 1.7; max-width: 640px; }
 .job-card-action { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-.job-apply-fallback { font-size: 0.78rem; color: var(--mist); text-decoration: none; }
-.job-apply-fallback:hover { color: var(--green-dark); text-decoration: underline; }
 @media (max-width: 700px) {
   .careers-values { grid-template-columns: 1fr; }
   .job-card { flex-direction: column; }
   .job-card-action { width: 100%; }
   .job-card-action .btn { width: 100%; justify-content: center; }
+}
+
+/* ─── APPLY MODAL ─── */
+.apply-modal-backdrop {
+  display: none; position: fixed; inset: 0; background: rgba(30,36,32,0.6);
+  z-index: 1000; align-items: center; justify-content: center; padding: 2rem;
+}
+.apply-modal-backdrop.open { display: flex; }
+.apply-modal {
+  background: white; border-radius: var(--radius-lg); padding: 2.5rem;
+  max-width: 480px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative;
+}
+.apply-modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px;
+  border: none; background: var(--cream); border-radius: 50%; cursor: pointer;
+  font-size: 1.3rem; line-height: 1; color: var(--stone);
+}
+.apply-modal-close:hover { background: var(--green-pale); color: var(--green-dark); }
+.apply-modal h3 {
+  font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 1.5rem; padding-right: 2rem;
+}
+.apply-modal form { display: flex; flex-direction: column; gap: 1rem; }
+.apply-modal .form-error {
+  background: #fdecea; border: 1px solid #f5c2c0; border-radius: var(--radius);
+  padding: 1rem 1.25rem; color: #b42318; font-size: 0.9rem; display: none;
+}
+@media (max-width: 600px) {
+  .apply-modal { padding: 2rem 1.5rem; }
 }
