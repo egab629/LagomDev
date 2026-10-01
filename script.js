@@ -242,6 +242,7 @@ function renderJobs() {
       </div>
       <div class="job-card-action">
         <a class="btn btn-primary" href="${escapeHtml(applyLinkFor(job))}" target="${job.applyLink ? '_blank' : '_self'}" rel="noopener">Apply</a>
+        ${!job.applyLink ? `<a class="job-apply-fallback" href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a>` : ''}
       </div>
     </div>
   `).join('');

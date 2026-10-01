@@ -1290,9 +1290,12 @@ footer {
 }
 .job-tag.loc { color: var(--stone); background: var(--cream); border-color: var(--border); }
 .job-desc { font-size: 0.92rem; color: var(--stone); line-height: 1.7; max-width: 640px; }
-.job-card-action { flex-shrink: 0; display: flex; align-items: center; }
+.job-card-action { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.job-apply-fallback { font-size: 0.78rem; color: var(--mist); text-decoration: none; }
+.job-apply-fallback:hover { color: var(--green-dark); text-decoration: underline; }
 @media (max-width: 700px) {
   .careers-values { grid-template-columns: 1fr; }
   .job-card { flex-direction: column; }
+  .job-card-action { width: 100%; }
   .job-card-action .btn { width: 100%; justify-content: center; }
 }
