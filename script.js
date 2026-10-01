@@ -198,7 +198,7 @@ function applyLinkFor(job) {
   if (job.applyLink) return job.applyLink;
   const subject = encodeURIComponent('Application: ' + job.title);
   const body = encodeURIComponent('Hi Lagom team,\n\nI\'d like to apply for the ' + job.title + ' role. My resume is attached.\n\n');
-  return 'mailto:admin@lagomdevelopment.com?subject=' + subject + '&body=' + body;
+  return 'mailto:via@lagomdevelopment.com?subject=' + subject + '&body=' + body;
 }
 
 function renderJobs() {

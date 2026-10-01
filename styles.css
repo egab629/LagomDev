@@ -890,6 +890,7 @@ footer {
   position: fixed; inset: 0; top: var(--nav-h); z-index: 99;
   background: var(--warm-white); padding: 2rem;
   flex-direction: column; gap: 0.25rem;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
@@ -1164,9 +1165,6 @@ footer {
 @media (max-width: 760px) {
   .model-about-grid {
     grid-template-columns: 1fr;
-  }
-  .model-about-thumb {
-    display: none;
   }
   .model-feature-photo { height: 260px; }
 }

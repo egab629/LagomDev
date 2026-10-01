@@ -29,7 +29,7 @@ Notes:
   column out entirely and every row is treated as open.
 - **Posted** should be a sortable date (`YYYY-MM-DD`); newest shows first.
 - **Apply Link**: leave blank and the Apply button opens a pre-filled email to
-  admin@lagomdevelopment.com instead. Fill it in to link to an external
+  via@lagomdevelopment.com instead. Fill it in to link to an external
   application form (e.g. an ATS) instead.
 - Column headers are matched loosely — "Job Title", "Team", "City", "Employment
   Type", "Date Posted", "Status", "Summary", "Apply URL" all work too. See the
