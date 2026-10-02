@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 </head>
 <body>
 
@@ -2056,40 +2056,34 @@
     <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--mist);">Or email us directly at <a href="mailto:via@lagomdevelopment.com" style="color: var(--green-dark);">via@lagomdevelopment.com</a></p>
   </div>
 
-  <div class="apply-modal-backdrop" id="applyModalBackdrop" onclick="closeApplyModal()">
-    <div class="apply-modal" onclick="event.stopPropagation()">
-      <button type="button" class="apply-modal-close" onclick="closeApplyModal()" aria-label="Close">&times;</button>
-      <h3>Apply for <span id="applyModalRole">this role</span></h3>
-      <form id="applyForm" onsubmit="submitApplication(event)">
-        <input type="hidden" name="access_key" value="f7dae290-7419-4171-83dd-f4a4a967c819">
-        <input type="hidden" name="subject" id="applySubject" value="">
-        <input type="hidden" name="position" id="applyPosition" value="">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <div class="form-group">
-          <label>Your name</label>
-          <input type="text" name="name" required>
-        </div>
-        <div class="form-group">
-          <label>Email address</label>
-          <input type="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label>Phone (optional)</label>
-          <input type="tel" name="phone">
-        </div>
-        <div class="form-group">
-          <label>Resume link</label>
-          <input type="url" name="resume_link" placeholder="LinkedIn, Google Drive, portfolio, etc.">
-        </div>
-        <div class="form-group">
-          <label>Anything else you'd like us to know?</label>
-          <textarea name="message"></textarea>
-        </div>
-        <div class="form-error" id="apply-error">Something went wrong sending this — please email us directly at <a href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a> instead.</div>
-        <button type="submit" class="btn btn-primary" id="apply-submit-btn" style="width: 100%; justify-content: center;">Submit Application</button>
-      </form>
-      <div class="form-success" id="apply-success">✓ Thanks! We've received your application and will be in touch.</div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><a class="logo" href="#" onclick="showPage('home')"><img src="https://img1.wsimg.com/isteam/ip/e3376d55-62b2-4dbb-b60d-ed7db92a3fb9/Logo%20transparent-01.png/:/rs=h:145,cg:true,m/qt=q:95" alt="Lagom Development"></a><p>Sustainable, attainable housing for working families.</p></div>
+      <div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('mission')">Our Mission</a><a href="#" onclick="showPage('careers')">Careers</a><a href="#" onclick="showPage('projects')">Projects</a></div>
+      <div class="footer-col"><h4>Learn</h4><a href="#" onclick="showPage('sips')">Why SIPs</a><a href="#" onclick="showPage('faqs')">FAQs</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:7708256190">(770) 825-6190</a><a href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a></div>
     </div>
+    <div class="footer-bottom"><span>© 2025 Lagom Development. All rights reserved.</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: JOB DETAIL (populated dynamically from the jobs sheet)
+═══════════════════════════════════════ -->
+<div class="page" id="page-job-detail">
+  <div class="job-detail-hero">
+    <a href="#" class="job-detail-back" onclick="showPage('careers')">← Back to all openings</a>
+    <h1 id="jobDetailTitle">Role title</h1>
+    <div class="job-meta" id="jobDetailMeta"></div>
+    <div class="job-detail-apply" id="jobDetailApplyAction"></div>
+  </div>
+
+  <div class="job-detail-body" id="jobDetailContent"></div>
+
+  <div style="background: var(--cream); padding: 5rem 2rem; text-align: center;">
+    <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em;">Ready to apply?</h2>
+    <div id="jobDetailApplyActionBottom"></div>
+    <p style="margin-top: 1rem;"><a href="#" onclick="showPage('careers')" style="color: var(--green-dark); font-size: 0.9rem;">← Back to all openings</a></p>
   </div>
 
   <footer>
@@ -2753,7 +2747,46 @@
   </footer>
 </div>
 
-<script src="script.js?v=10"></script>
+<!-- Apply modal — global overlay, lives outside every .page so it still renders
+     no matter which page is currently active (a .page's display:none would
+     otherwise hide it too, since it would be a descendant). -->
+<div class="apply-modal-backdrop" id="applyModalBackdrop" onclick="closeApplyModal()">
+  <div class="apply-modal" onclick="event.stopPropagation()">
+    <button type="button" class="apply-modal-close" onclick="closeApplyModal()" aria-label="Close">&times;</button>
+    <h3>Apply for <span id="applyModalRole">this role</span></h3>
+    <form id="applyForm" onsubmit="submitApplication(event)">
+      <input type="hidden" name="access_key" value="f7dae290-7419-4171-83dd-f4a4a967c819">
+      <input type="hidden" name="subject" id="applySubject" value="">
+      <input type="hidden" name="position" id="applyPosition" value="">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Phone (optional)</label>
+        <input type="tel" name="phone">
+      </div>
+      <div class="form-group">
+        <label>Resume link</label>
+        <input type="url" name="resume_link" placeholder="LinkedIn, Google Drive, portfolio, etc.">
+      </div>
+      <div class="form-group">
+        <label>Anything else you'd like us to know?</label>
+        <textarea name="message"></textarea>
+      </div>
+      <div class="form-error" id="apply-error">Something went wrong sending this — please email us directly at <a href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a> instead.</div>
+      <button type="submit" class="btn btn-primary" id="apply-submit-btn" style="width: 100%; justify-content: center;">Submit Application</button>
+    </form>
+    <div class="form-success" id="apply-success">✓ Thanks! We've received your application and will be in touch.</div>
+  </div>
+</div>
+
+<script src="script.js?v=11"></script>
 
 </body>
 </html>

@@ -1298,6 +1298,41 @@ footer {
   .job-card-action .btn { width: 100%; justify-content: center; }
 }
 
+.job-card h3 a.job-detail-trigger { color: inherit; text-decoration: none; }
+.job-card h3 a.job-detail-trigger:hover { color: var(--green-dark); }
+.job-detail-link {
+  display: inline-block; margin-top: 0.75rem; font-size: 0.85rem; font-weight: 500;
+  color: var(--green-dark); text-decoration: none;
+}
+.job-detail-link:hover { text-decoration: underline; }
+
+/* ─── JOB DETAIL PAGE ─── */
+.job-detail-hero {
+  padding: calc(var(--nav-h) + 3.5rem) 2rem 3rem; max-width: 760px; margin: 0 auto; text-align: left;
+}
+.job-detail-back {
+  display: inline-block; font-size: 0.85rem; color: var(--stone); text-decoration: none; margin-bottom: 1.5rem;
+}
+.job-detail-back:hover { color: var(--green-dark); }
+.job-detail-hero h1 {
+  font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 600; color: var(--charcoal); letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.job-detail-hero .job-meta { margin-bottom: 1.75rem; }
+.job-detail-apply .btn { width: 100%; justify-content: center; }
+@media (min-width: 480px) {
+  .job-detail-apply .btn { width: auto; }
+}
+.job-detail-body { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+.job-detail-section { margin-bottom: 2.25rem; }
+.job-detail-section h3 {
+  font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 0.75rem; letter-spacing: -0.01em;
+}
+.job-detail-section p { font-size: 0.98rem; color: var(--stone); line-height: 1.8; margin-bottom: 0.75rem; }
+.job-detail-section ul { margin: 0 0 0.75rem; padding-left: 1.25rem; }
+.job-detail-section li { font-size: 0.98rem; color: var(--stone); line-height: 1.8; margin-bottom: 0.4rem; }
+
 /* ─── APPLY MODAL ─── */
 .apply-modal-backdrop {
   display: none; position: fixed; inset: 0; background: rgba(30,36,32,0.6);

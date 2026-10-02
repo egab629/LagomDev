@@ -17,26 +17,49 @@ reconnect a new sheet if you ever need to.
 
 ## 1. Sheet schema
 
-One tab for jobs. Header row (any order, case-insensitive):
+One tab for jobs. Header row (any order, case-insensitive). Columns A–H drive
+the list cards on the Careers page; I–P drive the full detail page that opens
+when someone clicks a role (title or "View full details →").
 
 | Title | Department | Location | Type | Posted | Active | Description | Apply Link |
 |---|---|---|---|---|---|---|---|
 | Land Acquisition Manager | Development | Athens, GA | Full-time | 2026-09-15 | TRUE | Short 1-2 sentence summary of the role. | (optional) |
+
+| Position Overview | Company Overview | Partner Overview | Responsibilities | Qualifications | Preferred Technical Skills | Portfolio | Position Benefits |
+|---|---|---|---|---|---|---|---|
+| Opening paragraph(s) for the full posting. | Boilerplate about Lagom. | Optional — only if a partner org is involved. | Bulleted list. | Bulleted list. | Bulleted list. | What to include/submit, if anything. | Bulleted list. |
 
 Notes:
 - **Title** is the only required column — rows without one are skipped.
 - **Active**: `TRUE`/`FALSE`, `Yes`/`No`, or `Open`/`Closed` all work. Leave the
   column out entirely and every row is treated as open.
 - **Posted** should be a sortable date (`YYYY-MM-DD`); newest shows first.
+- **Description** (column G) is the short teaser shown on the list card. It's
+  also what the detail page falls back to showing if none of the I–P columns
+  are filled in yet.
 - **Apply Link**: leave blank and the Apply button opens an on-page application
   form instead (see below). Fill it in to link to an external application form
   (e.g. an ATS) instead — opens in a new tab.
+- Columns I–P (**Position Overview** through **Position Benefits**) are each
+  optional — a section only appears on the detail page if its cell has
+  content, so you can fill in as few or as many as you want per role.
+  **Partner Overview** in particular is meant to be left blank for most roles.
+- To write a bulleted list inside one of these cells, start each line with
+  `-` and press **Alt+Enter** (Windows/ChromeOS) or **⌥+Return** (Mac) for a
+  line break within the cell, instead of Enter (which would move to the next
+  row). Plain paragraphs (no leading `-`) render as normal text.
 - Column headers are matched loosely — "Job Title", "Team", "City", "Employment
-  Type", "Date Posted", "Status", "Summary", "Apply URL" all work too. See the
-  `JOB_FIELD_ALIASES` map in `script.js` if you want to add more aliases.
+  Type", "Date Posted", "Status", "Summary", "Apply URL", "Overview", "Duties",
+  "Requirements", "Perks" and more all work too. See the `JOB_FIELD_ALIASES`
+  map in `script.js` if you want to add more aliases.
 
 To close a role, either set **Active** to `FALSE`/delete the row, or just delete
 the row — no redeploy needed either way.
+
+Note on navigation: this site is a single-page app (every "page" is a `div`
+swapped by JavaScript, no real per-page URLs) — the job detail page follows
+that same pattern, so there isn't yet a shareable link straight to one role.
+Say the word if you'd like that added.
 
 ## 2. Reconnecting a different sheet
 

@@ -84,11 +84,35 @@ const JOBS_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/15nF3Y18O_J4v
 // Shown until a real sheet is connected, so the page never looks broken.
 const JOBS_DEMO_DATA = [
   { title: 'Land Acquisition Manager', department: 'Development', location: 'Athens, GA', type: 'Full-time', posted: '2026-09-15', active: true,
-    description: 'Identify, underwrite, and help close acquisitions for new Lagom communities across the Southeast.', applyLink: '' },
+    description: 'Identify, underwrite, and help close acquisitions for new Lagom communities across the Southeast.', applyLink: '',
+    positionOverview: 'Lagom Development is looking for a Land Acquisition Manager to source and close land deals that fuel our next communities across the Southeast. You will own the pipeline from first contact through closing.',
+    companyOverview: 'Lagom Development is a vertically integrated housing company manufacturing our own high-performance SIPs and building walkable, attainable neighborhoods for working families across the Southeast.',
+    partnerOverview: '',
+    responsibilities: '- Identify and evaluate land acquisition opportunities across target Southeast markets\n- Underwrite deals, including pro formas and feasibility analysis\n- Negotiate purchase agreements and manage due diligence\n- Coordinate with legal, design, and entitlement teams through closing\n- Maintain relationships with brokers, landowners, and local municipalities',
+    qualifications: '- 3+ years in land acquisition, development, or commercial real estate\n- Strong financial modeling and underwriting skills\n- Familiarity with entitlement and zoning processes in Georgia or the broader Southeast\n- Excellent negotiation and relationship-building skills',
+    preferredSkills: '- Experience with SIPs or alternative construction methods\n- Comfort with Excel-based pro forma models and ArcGIS or similar mapping tools',
+    portfolio: 'Please include a brief summary (1-2 deals) of land acquisitions you have sourced or closed, including deal size and outcome.',
+    benefits: '- Competitive salary plus performance bonus\n- Health, dental, and vision insurance\n- Equity/profit-sharing eligibility\n- Direct influence on where and how Lagom grows next' },
   { title: 'Construction Site Superintendent', department: 'Construction', location: 'Athens, GA', type: 'Full-time', posted: '2026-09-10', active: true,
-    description: 'Run day-to-day operations at Bluebird Lane, coordinating SIPs crews, subcontractors, and inspections.', applyLink: '' },
+    description: 'Run day-to-day operations at Bluebird Lane, coordinating SIPs crews, subcontractors, and inspections.', applyLink: '',
+    positionOverview: 'We are looking for a hands-on Site Superintendent to run daily operations at Bluebird Lane, our flagship SIPs-built community in Athens, GA.',
+    companyOverview: 'Lagom Development is a vertically integrated housing company manufacturing our own high-performance SIPs and building walkable, attainable neighborhoods for working families across the Southeast.',
+    partnerOverview: '',
+    responsibilities: '- Run day-to-day field operations at Bluebird Lane\n- Coordinate SIPs installation crews and subcontractors\n- Schedule and pass municipal inspections\n- Enforce job site safety standards\n- Track progress against schedule and budget, flagging issues early',
+    qualifications: '- 5+ years as a construction superintendent or site supervisor\n- Residential or light-commercial construction experience\n- Strong understanding of scheduling, safety, and inspection processes\n- Clear, proactive communicator',
+    preferredSkills: '- Experience with SIPs or panelized construction\n- Familiarity with construction scheduling software (e.g. Procore, Buildertrend)',
+    portfolio: '',
+    benefits: '- Competitive salary\n- Health, dental, and vision insurance\n- Paid time off\n- Be the on-the-ground leader building Lagom\'s first community' },
   { title: 'Marketing & Community Coordinator', department: 'Marketing', location: 'Remote (Southeast US)', type: 'Full-time', posted: '2026-09-02', active: true,
-    description: 'Own our homebuyer-facing content, social channels, and on-the-ground community events.', applyLink: '' }
+    description: 'Own our homebuyer-facing content, social channels, and on-the-ground community events.', applyLink: '',
+    positionOverview: 'Lagom is hiring a Marketing & Community Coordinator to own how prospective homebuyers and our broader community experience the Lagom story — online and in person.',
+    companyOverview: 'Lagom Development is a vertically integrated housing company manufacturing our own high-performance SIPs and building walkable, attainable neighborhoods for working families across the Southeast.',
+    partnerOverview: 'You will occasionally collaborate with Lagom\'s partners — including Sandy Creek LandCraft, SIPschool, and CrossCountry Mortgage — on co-marketed events and content.',
+    responsibilities: '- Own homebuyer-facing content across the website, email, and social channels\n- Plan and run on-the-ground community events at Bluebird Lane\n- Coordinate with partners on co-marketed campaigns\n- Track and report on engagement and lead generation',
+    qualifications: '- 2+ years in marketing, communications, or community management\n- Strong writing and content creation skills\n- Comfortable running in-person events\n- Self-directed and organized working remotely',
+    preferredSkills: '- Experience with real estate or homebuilder marketing\n- Familiarity with email platforms, social scheduling tools, and basic design tools (Canva, Figma)',
+    portfolio: 'Please share 2-3 writing or content samples (social posts, email campaigns, event recaps, etc.).',
+    benefits: '- Competitive salary\n- Health, dental, and vision insurance\n- Remote-friendly with regular travel to Athens, GA\n- Ground-floor role shaping how Lagom shows up publicly' }
 ];
 
 let jobsState = { all: [], loaded: false, error: false };
@@ -129,7 +153,15 @@ const JOB_FIELD_ALIASES = {
   posted: ['posted', 'date posted', 'posted date', 'date'],
   active: ['active', 'status', 'open'],
   description: ['description', 'summary', 'details', 'about the role'],
-  applyLink: ['apply link', 'apply url', 'application link', 'url', 'link']
+  applyLink: ['apply link', 'apply url', 'application link', 'url', 'link'],
+  positionOverview: ['position overview', 'overview', 'role overview'],
+  companyOverview: ['company overview', 'about lagom', 'about the company'],
+  partnerOverview: ['partner overview', 'about the partner'],
+  responsibilities: ['responsibilities', 'what you\'ll do', 'duties'],
+  qualifications: ['qualifications', 'requirements', 'what you\'ll need'],
+  preferredSkills: ['preferred technical skills', 'preferred skills', 'technical skills', 'nice to have'],
+  portfolio: ['portfolio', 'portfolio requirements', 'work samples'],
+  benefits: ['position benefits', 'benefits', 'perks']
 };
 
 function matchHeader(header) {
@@ -138,6 +170,12 @@ function matchHeader(header) {
     if (JOB_FIELD_ALIASES[key].includes(h)) return key;
   }
   return null;
+}
+
+function slugify(str) {
+  return String(str || '').toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || 'role';
 }
 
 function parseActive(value) {
@@ -225,13 +263,14 @@ function renderJobs() {
   list.innerHTML = filtered.map(job => `
     <div class="job-card">
       <div class="job-card-main">
-        <h3>${escapeHtml(job.title)}</h3>
+        <h3><a href="#" class="job-detail-trigger" data-slug="${escapeHtml(slugify(job.title))}">${escapeHtml(job.title)}</a></h3>
         <div class="job-meta">
           ${job.department ? `<span class="job-tag">${escapeHtml(job.department)}</span>` : ''}
           ${job.location ? `<span class="job-tag loc">${escapeHtml(job.location)}</span>` : ''}
           ${job.type ? `<span class="job-tag loc">${escapeHtml(job.type)}</span>` : ''}
         </div>
         ${job.description ? `<p class="job-desc">${escapeHtml(job.description)}</p>` : ''}
+        <a href="#" class="job-detail-trigger job-detail-link" data-slug="${escapeHtml(slugify(job.title))}">View full details →</a>
       </div>
       <div class="job-card-action">
         ${job.applyLink
@@ -241,6 +280,72 @@ function renderJobs() {
     </div>
   `).join('');
 }
+
+/* ═══════════════════════════════════════
+   Job detail page — renders the full posting from the sheet's rich-text columns.
+═══════════════════════════════════════ */
+
+function renderRichText(text) {
+  if (!text) return '';
+  const lines = String(text).split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  let html = '', inList = false;
+  lines.forEach(line => {
+    const isBullet = /^[-•*]\s+/.test(line);
+    if (isBullet) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${escapeHtml(line.replace(/^[-•*]\s+/, ''))}</li>`;
+    } else {
+      if (inList) { html += '</ul>'; inList = false; }
+      html += `<p>${escapeHtml(line)}</p>`;
+    }
+  });
+  if (inList) html += '</ul>';
+  return html;
+}
+
+function renderDetailSection(heading, text) {
+  if (!text) return '';
+  return `<div class="job-detail-section"><h3>${escapeHtml(heading)}</h3>${renderRichText(text)}</div>`;
+}
+
+function openJobDetail(slug) {
+  const job = jobsState.all.find(j => slugify(j.title) === slug);
+  if (!job) { showPage('careers'); return; }
+
+  document.getElementById('jobDetailTitle').textContent = job.title;
+  document.getElementById('jobDetailMeta').innerHTML = [
+    job.department ? `<span class="job-tag">${escapeHtml(job.department)}</span>` : '',
+    job.location ? `<span class="job-tag loc">${escapeHtml(job.location)}</span>` : '',
+    job.type ? `<span class="job-tag loc">${escapeHtml(job.type)}</span>` : ''
+  ].join('');
+
+  const sections = [
+    ['Position Overview', job.positionOverview],
+    ['Company Overview', job.companyOverview],
+    ['Partner Overview', job.partnerOverview],
+    ['Responsibilities', job.responsibilities],
+    ['Qualifications', job.qualifications],
+    ['Preferred Technical Skills', job.preferredSkills],
+    ['Portfolio', job.portfolio],
+    ['Position Benefits', job.benefits]
+  ];
+  const sectionsHtml = sections.map(([h, t]) => renderDetailSection(h, t)).join('');
+  document.getElementById('jobDetailContent').innerHTML =
+    sectionsHtml || (job.description ? `<p class="job-desc">${escapeHtml(job.description)}</p>` : '');
+
+  const applyHtml = job.applyLink
+    ? `<a class="btn btn-primary" href="${escapeHtml(job.applyLink)}" target="_blank" rel="noopener">Apply for this role</a>`
+    : `<button type="button" class="btn btn-primary apply-trigger" data-job-title="${escapeHtml(job.title)}">Apply for this role</button>`;
+  document.getElementById('jobDetailApplyAction').innerHTML = applyHtml;
+  document.getElementById('jobDetailApplyActionBottom').innerHTML = applyHtml;
+
+  showPage('job-detail');
+}
+
+document.addEventListener('click', function(e) {
+  const detailTrigger = e.target.closest('.job-detail-trigger');
+  if (detailTrigger) { e.preventDefault(); openJobDetail(detailTrigger.dataset.slug); }
+});
 
 /* ═══════════════════════════════════════
    Application modal — submits via Web3Forms, no mail client required.
