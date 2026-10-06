@@ -21,6 +21,15 @@ function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   target.classList.add('active');
   window.scrollTo(0, 0);
+  // job-detail sets its own, more specific title in openJobDetail — leave it alone.
+  if (id === 'careers') document.title = 'Careers — Lagom Development';
+  else if (id !== 'job-detail') document.title = 'Lagom Development';
+  // Every other page nav (About, FAQs, etc.) goes through plain showPage() with
+  // no URL of its own — if we're leaving a /careers URL for one of those, drop
+  // back to '/' so the address bar doesn't keep pointing at a job no longer shown.
+  if (id !== 'careers' && id !== 'job-detail' && /^\/careers(\/|$)/.test(location.pathname)) {
+    history.pushState({ page: 'home' }, '', '/');
+  }
 }
 
 function toggleMenu() {
@@ -214,6 +223,7 @@ async function fetchJobs() {
   }
   populateJobFilters();
   renderJobs();
+  resolveRoute();
 }
 
 function populateJobFilters() {
@@ -310,8 +320,16 @@ function renderDetailSection(heading, text) {
 
 function openJobDetail(slug) {
   const job = jobsState.all.find(j => slugify(j.title) === slug);
-  if (!job) { showPage('careers'); return; }
+  if (!job) {
+    // Stale or mistyped link — land on the list instead, and fix the address bar to match.
+    if (location.pathname.replace(/\/+$/, '') !== '/careers') {
+      history.replaceState({ page: 'careers' }, '', '/careers');
+    }
+    showPage('careers');
+    return;
+  }
 
+  document.title = job.title + ' — Careers — Lagom Development';
   document.getElementById('jobDetailTitle').textContent = job.title;
   document.getElementById('jobDetailMeta').innerHTML = [
     job.department ? `<span class="job-tag">${escapeHtml(job.department)}</span>` : '',
@@ -342,9 +360,42 @@ function openJobDetail(slug) {
   showPage('job-detail');
 }
 
+/* ═══════════════════════════════════════
+   Routing — /careers and /careers/<slug> get real, shareable URLs via the
+   History API, with a Vercel rewrite (vercel.json) so a direct hit or a
+   page refresh on those paths still serves this same index.html.
+═══════════════════════════════════════ */
+
+function navigateToCareers() {
+  if (location.pathname.replace(/\/+$/, '') !== '/careers') {
+    history.pushState({ page: 'careers' }, '', '/careers');
+  }
+  showPage('careers');
+}
+
+function navigateToJobDetail(slug) {
+  const path = '/careers/' + slug;
+  if (location.pathname.replace(/\/+$/, '') !== path) {
+    history.pushState({ page: 'job', slug }, '', path);
+  }
+  openJobDetail(slug);
+}
+
+// Renders whatever the current URL points to — used on first load and on
+// browser back/forward (popstate). Never touches history itself.
+function resolveRoute() {
+  const path = location.pathname.replace(/\/+$/, '') || '/';
+  const jobMatch = path.match(/^\/careers\/([^/]+)$/);
+  if (jobMatch) openJobDetail(decodeURIComponent(jobMatch[1]));
+  else if (path === '/careers') showPage('careers');
+  else if (path === '/') showPage('home');
+}
+
+window.addEventListener('popstate', resolveRoute);
+
 document.addEventListener('click', function(e) {
   const detailTrigger = e.target.closest('.job-detail-trigger');
-  if (detailTrigger) { e.preventDefault(); openJobDetail(detailTrigger.dataset.slug); }
+  if (detailTrigger) { e.preventDefault(); navigateToJobDetail(detailTrigger.dataset.slug); }
 });
 
 /* ═══════════════════════════════════════

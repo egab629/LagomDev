@@ -56,10 +56,17 @@ Notes:
 To close a role, either set **Active** to `FALSE`/delete the row, or just delete
 the row — no redeploy needed either way.
 
-Note on navigation: this site is a single-page app (every "page" is a `div`
-swapped by JavaScript, no real per-page URLs) — the job detail page follows
-that same pattern, so there isn't yet a shareable link straight to one role.
-Say the word if you'd like that added.
+Note on navigation: the rest of this site is a single-page app (every "page"
+is a `div` swapped by JavaScript, no real per-page URL — clicking "About Us"
+or "FAQs" never changes the address bar). The Careers list and each job
+detail page are the exception: they have real, shareable URLs —
+`/careers` and `/careers/<slug>` (the slug is the job title, lowercased and
+hyphenated, e.g. `/careers/land-acquisition-manager`). Those work as direct
+links, survive a page refresh, and support the browser back/forward buttons.
+This is implemented two ways together — see `vercel.json` (tells Vercel to
+serve `index.html` for those paths instead of a 404) and the routing
+functions in `script.js` (`navigateToCareers`, `navigateToJobDetail`,
+`resolveRoute`) that read/write the URL client-side without a full reload.
 
 ## 2. Reconnecting a different sheet
 
