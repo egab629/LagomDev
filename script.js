@@ -391,7 +391,20 @@ function resolveRoute() {
   else if (path === '/') showPage('home');
 }
 
-window.addEventListener('popstate', resolveRoute);
+// Every nav link on this site (not just the careers ones) uses href="#", which
+// makes the browser push its own same-document history entry on click — and
+// that fires a popstate event too, indistinguishable from a real back/forward
+// press unless we check event.state. Tag our own entries with a `page` marker
+// so the listener below only reacts to genuine navigation through states we
+// pushed, and ignores the incidental popstate from every other "#" link site-wide
+// (which would otherwise snap the page back to whatever /careers or / last was).
+if (!history.state || !history.state.page) {
+  history.replaceState({ page: 'initial' }, '', location.pathname);
+}
+
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.page) resolveRoute();
+});
 
 document.addEventListener('click', function(e) {
   const detailTrigger = e.target.closest('.job-detail-trigger');
