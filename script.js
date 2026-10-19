@@ -159,6 +159,7 @@ const JOB_FIELD_ALIASES = {
   department: ['department', 'team', 'dept'],
   location: ['location', 'city', 'office'],
   type: ['type', 'employment type', 'job type'],
+  salary: ['salary', 'salary range', 'pay', 'pay range', 'compensation', 'wage'],
   posted: ['posted', 'date posted', 'posted date', 'date'],
   active: ['active', 'status', 'open'],
   description: ['description', 'summary', 'details', 'about the role'],
@@ -278,6 +279,7 @@ function renderJobs() {
           ${job.department ? `<span class="job-tag">${escapeHtml(job.department)}</span>` : ''}
           ${job.location ? `<span class="job-tag loc">${escapeHtml(job.location)}</span>` : ''}
           ${job.type ? `<span class="job-tag loc">${escapeHtml(job.type)}</span>` : ''}
+          ${job.salary ? `<span class="job-tag pay">${escapeHtml(job.salary)}</span>` : ''}
         </div>
         ${job.description ? `<p class="job-desc">${escapeHtml(job.description)}</p>` : ''}
         <a href="#" class="job-detail-trigger job-detail-link" data-slug="${escapeHtml(slugify(job.title))}">View full details →</a>
@@ -334,7 +336,8 @@ function openJobDetail(slug) {
   document.getElementById('jobDetailMeta').innerHTML = [
     job.department ? `<span class="job-tag">${escapeHtml(job.department)}</span>` : '',
     job.location ? `<span class="job-tag loc">${escapeHtml(job.location)}</span>` : '',
-    job.type ? `<span class="job-tag loc">${escapeHtml(job.type)}</span>` : ''
+    job.type ? `<span class="job-tag loc">${escapeHtml(job.type)}</span>` : '',
+    job.salary ? `<span class="job-tag pay">${escapeHtml(job.salary)}</span>` : ''
   ].join('');
 
   const sections = [

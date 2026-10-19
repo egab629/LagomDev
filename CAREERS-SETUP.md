@@ -33,6 +33,10 @@ Notes:
 - **Title** is the only required column — rows without one are skipped.
 - **Active**: `TRUE`/`FALSE`, `Yes`/`No`, or `Open`/`Closed` all work. Leave the
   column out entirely and every row is treated as open.
+- **Salary** (optional, any column position): free text shown as a tag on the
+  job card and detail page, e.g. `$55,000 – $70,000 / yr` or `$20 – $24 / hr`.
+  Leave blank to hide it. "Salary Range", "Pay", "Pay Range" and
+  "Compensation" also work as the header.
 - **Posted** should be a sortable date (`YYYY-MM-DD`); newest shows first.
 - **Description** (column G) is the short teaser shown on the list card. It's
   also what the detail page falls back to showing if none of the I–P columns
