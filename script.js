@@ -102,12 +102,12 @@ const JOBS_DEMO_DATA = [
     preferredSkills: '- Experience with SIPs or alternative construction methods\n- Comfort with Excel-based pro forma models and ArcGIS or similar mapping tools',
     portfolio: 'Please include a brief summary (1-2 deals) of land acquisitions you have sourced or closed, including deal size and outcome.',
     benefits: '- Competitive salary plus performance bonus\n- Health, dental, and vision insurance\n- Equity/profit-sharing eligibility\n- Direct influence on where and how Lagom grows next' },
-  { title: 'Construction Site Superintendent', department: 'Construction', location: 'Athens, GA', type: 'Full-time', posted: '2026-09-10', active: true,
-    description: 'Run day-to-day operations at Bluebird Lane, coordinating SIPs crews, subcontractors, and inspections.', applyLink: '',
-    positionOverview: 'We are looking for a hands-on Site Superintendent to run daily operations at Bluebird Lane, our flagship SIPs-built community in Athens, GA.',
+  { title: 'Construction Site Superintendent', department: 'Construction', location: 'Greensboro, GA', type: 'Full-time', posted: '2026-09-10', active: true,
+    description: 'Run day-to-day operations at Oakdale Forest, coordinating SIPs crews, subcontractors, and inspections.', applyLink: '',
+    positionOverview: 'We are looking for a hands-on Site Superintendent to run daily operations at Oakdale Forest, our flagship SIPs-built community in Greensboro, GA.',
     companyOverview: 'Lagom Development is a vertically integrated housing company manufacturing our own high-performance SIPs and building walkable, attainable neighborhoods for working families across the Southeast.',
     partnerOverview: '',
-    responsibilities: '- Run day-to-day field operations at Bluebird Lane\n- Coordinate SIPs installation crews and subcontractors\n- Schedule and pass municipal inspections\n- Enforce job site safety standards\n- Track progress against schedule and budget, flagging issues early',
+    responsibilities: '- Run day-to-day field operations at Oakdale Forest\n- Coordinate SIPs installation crews and subcontractors\n- Schedule and pass municipal inspections\n- Enforce job site safety standards\n- Track progress against schedule and budget, flagging issues early',
     qualifications: '- 5+ years as a construction superintendent or site supervisor\n- Residential or light-commercial construction experience\n- Strong understanding of scheduling, safety, and inspection processes\n- Clear, proactive communicator',
     preferredSkills: '- Experience with SIPs or panelized construction\n- Familiarity with construction scheduling software (e.g. Procore, Buildertrend)',
     portfolio: '',
@@ -117,11 +117,11 @@ const JOBS_DEMO_DATA = [
     positionOverview: 'Lagom is hiring a Marketing & Community Coordinator to own how prospective homebuyers and our broader community experience the Lagom story — online and in person.',
     companyOverview: 'Lagom Development is a vertically integrated housing company manufacturing our own high-performance SIPs and building walkable, attainable neighborhoods for working families across the Southeast.',
     partnerOverview: 'You will occasionally collaborate with Lagom\'s partners — including Sandy Creek LandCraft, SIPschool, and CrossCountry Mortgage — on co-marketed events and content.',
-    responsibilities: '- Own homebuyer-facing content across the website, email, and social channels\n- Plan and run on-the-ground community events at Bluebird Lane\n- Coordinate with partners on co-marketed campaigns\n- Track and report on engagement and lead generation',
+    responsibilities: '- Own homebuyer-facing content across the website, email, and social channels\n- Plan and run on-the-ground community events at Oakdale Forest\n- Coordinate with partners on co-marketed campaigns\n- Track and report on engagement and lead generation',
     qualifications: '- 2+ years in marketing, communications, or community management\n- Strong writing and content creation skills\n- Comfortable running in-person events\n- Self-directed and organized working remotely',
     preferredSkills: '- Experience with real estate or homebuilder marketing\n- Familiarity with email platforms, social scheduling tools, and basic design tools (Canva, Figma)',
     portfolio: 'Please share 2-3 writing or content samples (social posts, email campaigns, event recaps, etc.).',
-    benefits: '- Competitive salary\n- Health, dental, and vision insurance\n- Remote-friendly with regular travel to Athens, GA\n- Ground-floor role shaping how Lagom shows up publicly' }
+    benefits: '- Competitive salary\n- Health, dental, and vision insurance\n- Remote-friendly with regular travel to Greensboro, GA\n- Ground-floor role shaping how Lagom shows up publicly' }
 ];
 
 let jobsState = { all: [], loaded: false, error: false };
