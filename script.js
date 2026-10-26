@@ -417,7 +417,7 @@ document.addEventListener('click', function(e) {
 /* ═══════════════════════════════════════
    Application modal — submits to the Lagom application inbox (a Google Apps
    Script web app, see apps-script/ApplicationInbox.gs), which saves the resume
-   to Drive and emails it to gina@. No mail client required.
+   to Drive and emails it to pete@. No mail client required.
 ═══════════════════════════════════════ */
 
 document.addEventListener('click', function(e) {

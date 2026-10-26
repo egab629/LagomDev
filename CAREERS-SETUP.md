@@ -107,7 +107,7 @@ each application it:
 
 - saves the resume to a Drive folder called **Website Job Applications**
   (file name: date, role, applicant), so a copy is always kept, and
-- emails **gina@lagomdevelopment.com** with the resume attached, subject
+- emails **pete@lagomdevelopment.com** with the resume attached, subject
   "Website Application: <role>". Replying to the email replies to the applicant.
 
 It's free. Apps Script can send about 100 emails a day from a regular Gmail
@@ -128,7 +128,7 @@ account, or 1,500 a day from Google Workspace.
    Copy the **Web app URL** (it ends in `/exec`).
 5. In `script.js`, paste that URL into `APPLICATION_ENDPOINT`, bump the
    `script.js?v=` number in `index.html`, and push.
-6. Send one test application with a resume and check that it reaches gina@ and
+6. Send one test application with a resume and check that it reaches pete@ and
    the Drive folder.
 
 To change who gets the emails, edit `NOTIFY_EMAIL` in the script, then

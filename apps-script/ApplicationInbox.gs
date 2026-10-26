@@ -6,7 +6,7 @@
  * ("How applications are delivered") for deployment steps.
  */
 
-const NOTIFY_EMAIL = 'gina@lagomdevelopment.com';
+const NOTIFY_EMAIL = 'pete@lagomdevelopment.com';
 const FOLDER_NAME = 'Website Job Applications';
 const MAX_BYTES = 5 * 1024 * 1024;
 const RESUME_TYPES = {
