@@ -163,23 +163,47 @@ function setup() {
   const sheet = logSheet();
   folder.setSharing(DriveApp.Access.DOMAIN, DriveApp.Permission.VIEW);
 
-  const known = new Set(sheet.getDataRange().getValues().map((r) => String(r[8])));
-  const files = folder.getFiles();
-  let added = 0;
-  while (files.hasNext()) {
-    const f = files.next();
-    if (f.getId() === sheet.getParent().getId() || known.has(f.getId())) continue;
-    const parts = f.getName().replace(/\.[^.]+$/, '').split(' - ');
-    sheet.appendRow([Utilities.getUuid(), f.getDateCreated(), safeCell(parts[1] || ''),
-      safeCell(parts.slice(2).join(' - ') || f.getName()), '', '', '', f.getUrl(), f.getId(),
-      'New', 'Added from the Drive folder (no contact details logged).', new Date()]);
-    added += 1;
-  }
   console.log('Resumes folder: ' + folder.getUrl());
   console.log('Applications log: ' + sheet.getParent().getUrl());
   console.log('Resumes folder is now viewable by everyone at ' + ADMIN_DOMAIN);
-  console.log('Older resumes added to the log: ' + added);
+  console.log('Resumes added to the log: ' + importResumes());
   console.log('Emails left today: ' + MailApp.getRemainingDailyQuota());
+}
+
+/**
+ * Run from the Apps Script editor to add resumes received some other way:
+ * put the files in the resumes folder first. Every file in the folder that
+ * isn't in the log yet is added as "New"; fill in the role, email and phone in
+ * the log sheet afterwards. Returns how many were added.
+ */
+function importResumes() {
+  const folder = applicationsFolder();
+  const sheet = logSheet();
+  const logId = sheet.getParent().getId();
+  return withLock(() => {
+    const known = new Set(sheet.getDataRange().getValues().map((r) => String(r[8])));
+    const files = folder.getFiles();
+    let added = 0;
+    while (files.hasNext()) {
+      const f = files.next();
+      if (f.getId() === logId || known.has(f.getId())) continue;
+      const base = f.getName().replace(/\.[^.]+$/, '');
+      const parts = base.split(' - ');
+      // Files from the careers form are named "<date> - <role> - <name>".
+      const fromForm = parts.length >= 3 && /^\d{4}-\d{2}-\d{2}/.test(parts[0]);
+      const position = fromForm ? parts[1] : '';
+      const name = fromForm ? parts.slice(2).join(' - ')
+        : base.replace(/[_.]+/g, ' ').replace(/\b(resume|résumé|cv|curriculum vitae)\b/gi, '')
+          .replace(/[\s-]+$|^[\s-]+/g, '').replace(/\s{2,}/g, ' ') || base;
+      sheet.appendRow([Utilities.getUuid(), f.getDateCreated(), safeCell(position), safeCell(name),
+        '', '', '', f.getUrl(), f.getId(), 'New',
+        fromForm ? 'Added from the Drive folder (no contact details logged).' : 'Imported resume — add role, email and phone in the log.',
+        new Date()]);
+      added += 1;
+    }
+    console.log('Resumes added to the log: ' + added);
+    return added;
+  });
 }
 
 /* ── Helpers ────────────────────────────────────────────────────────────── */

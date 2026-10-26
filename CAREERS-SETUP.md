@@ -151,6 +151,18 @@ The admin page is its own deployment of the same script, so it gets its own URL:
 **Anyone within Lagom Development**. Bookmark that URL. Keep the public
 deployment (the one in `script.js`) as it is.
 
+### Adding resumes received some other way
+
+1. Put the files (PDF or Word) in the **Website Job Applications** Drive
+   folder. From Gmail, use the attachment's "Add to Drive" button, then move it there.
+2. In the Apps Script editor, choose **importResumes** and click **Run**. Each
+   file not already in the log is added as **New**, named from its file name
+   ("John_Smith_Resume.pdf" becomes "John Smith").
+3. Open the log sheet and fill in the role, email and phone for those rows.
+   The admin page shows the changes on **Refresh**.
+
+No redeploy is needed: functions run from the editor always use the saved code.
+
 If the endpoint is unreachable or not set, the form shows an inline error with
 a direct email fallback rather than failing silently.
 
