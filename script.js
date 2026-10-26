@@ -415,7 +415,9 @@ document.addEventListener('click', function(e) {
 });
 
 /* ═══════════════════════════════════════
-   Application modal — submits via Web3Forms, no mail client required.
+   Application modal — submits to the Lagom application inbox (a Google Apps
+   Script web app, see apps-script/ApplicationInbox.gs), which saves the resume
+   to Drive and emails it to gina@. No mail client required.
 ═══════════════════════════════════════ */
 
 document.addEventListener('click', function(e) {
@@ -435,7 +437,6 @@ function openApplyModal(title) {
   form.style.display = '';
   document.getElementById('applyModalRole').textContent = title || 'this role';
   document.getElementById('applyPosition').value = title || 'General Interest';
-  document.getElementById('applySubject').value = 'Website Application: ' + (title || 'General Interest');
   document.getElementById('apply-success').style.display = 'none';
   document.getElementById('apply-error').style.display = 'none';
   backdrop.classList.add('open');
@@ -449,6 +450,24 @@ function closeApplyModal() {
   document.body.style.overflow = '';
 }
 
+// Deployed Apps Script web app URL (ends in /exec). See CAREERS-SETUP.md.
+const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbySKE0xelAqeFlwJXYQPW3nUbKUIH5CB9BS5VBC5-wuWfuwzR961V9m228-UucOD-0yow/exec';
+const RESUME_MAX_BYTES = 5 * 1024 * 1024;
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1]);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+
+// Clear a previous "wrong file" message as soon as a new file is picked.
+document.addEventListener('change', function(e) {
+  if (e.target.id === 'applyResume') e.target.setCustomValidity('');
+});
+
 async function submitApplication(event) {
   event.preventDefault();
   const form = event.target;
@@ -461,14 +480,29 @@ async function submitApplication(event) {
   const formData = new FormData(form);
   if (formData.get('botcheck')) return; // honeypot tripped — silently drop
 
+  // Resume must be an actual PDF/Word file, 5 MB or smaller.
+  const resumeInput = document.getElementById('applyResume');
+  const resume = resumeInput.files[0];
+  let resumeProblem = '';
+  if (!resume) resumeProblem = 'Please attach your resume.';
+  else if (!/\.(pdf|docx?)$/i.test(resume.name)) resumeProblem = 'Please attach your resume as a PDF or Word document.';
+  else if (resume.size > RESUME_MAX_BYTES) resumeProblem = 'Your resume is larger than 5 MB. Please attach a smaller file.';
+  resumeInput.setCustomValidity(resumeProblem);
+  if (resumeProblem) { resumeInput.reportValidity(); return; }
+
   btn.disabled = true;
   btn.textContent = 'Submitting…';
 
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    if (!APPLICATION_ENDPOINT) throw new Error('APPLICATION_ENDPOINT is not set');
+    const payload = Object.fromEntries([...formData.entries()].filter(([, v]) => typeof v === 'string'));
+    payload.resume = { name: resume.name, type: resume.type, data: await fileToBase64(resume) };
+    // text/plain keeps this a "simple" request, which Apps Script accepts
+    // cross-origin without a CORS preflight.
+    const res = await fetch(APPLICATION_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(formData.entries()))
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
     });
     const result = await res.json();
     if (!result.success) throw new Error(result.message || 'Submission failed');

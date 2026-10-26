@@ -97,20 +97,46 @@ Until this is set, the page shows three sample roles (`JOBS_DEMO_DATA` in
 
 ## 3. How applications are delivered
 
-The Apply button opens an on-page modal form (name, email, phone, resume link,
-message) that submits via [Web3Forms](https://web3forms.com/) — no mail client
-required on the applicant's end, unlike a `mailto:` link, which silently does
-nothing if their computer has no default email app configured.
+The Apply button opens an on-page modal form (name, email, phone, a required
+resume file, message). A resume link is not accepted: applicants must attach a
+PDF, DOC or DOCX file of 5 MB or less.
 
-- Submissions email straight to **via@lagomdevelopment.com**, with a subject
-  line naming the role ("Website Application: <role>").
-- The access key lives in `index.html` as a hidden input
-  (`name="access_key"`) inside the `#applyForm` element. It's safe to be
-  public — it only allows sending *to* the registered email, nothing else.
-- To change which inbox receives applications, get a new key for the new
-  address at web3forms.com and swap that hidden input's value.
-- If Web3Forms is ever unreachable, the form shows an inline error with a
-  direct mailto fallback rather than failing silently.
+The form posts to a small **Google Apps Script web app**
+(`apps-script/ApplicationInbox.gs`) running in Lagom's Google account. For
+each application it:
+
+- saves the resume to a Drive folder called **Website Job Applications**
+  (file name: date, role, applicant), so a copy is always kept, and
+- emails **gina@lagomdevelopment.com** with the resume attached, subject
+  "Website Application: <role>". Replying to the email replies to the applicant.
+
+It's free. Apps Script can send about 100 emails a day from a regular Gmail
+account, or 1,500 a day from Google Workspace.
+
+### One-time setup
+
+1. Sign in to the Google account that should own the resumes folder (ideally
+   a Lagom Google Workspace account) and go to
+   <https://script.google.com> → **New project**. Name it "Lagom application inbox".
+2. Replace the contents of `Code.gs` with `apps-script/ApplicationInbox.gs`
+   from this repo, and save.
+3. Pick **setup** in the function dropdown and click **Run**. Approve the
+   permissions it asks for (Drive and sending email). The log shows the new
+   folder's link.
+4. Click **Deploy → New deployment**, choose type **Web app**, set
+   *Execute as* **Me** and *Who has access* **Anyone**, then **Deploy**.
+   Copy the **Web app URL** (it ends in `/exec`).
+5. In `script.js`, paste that URL into `APPLICATION_ENDPOINT`, bump the
+   `script.js?v=` number in `index.html`, and push.
+6. Send one test application with a resume and check that it reaches gina@ and
+   the Drive folder.
+
+To change who gets the emails, edit `NOTIFY_EMAIL` in the script, then
+**Deploy → Manage deployments → Edit → New version** (the URL stays the same).
+Any change to the script needs a new version this way to go live.
+
+If the endpoint is unreachable or not set, the form shows an inline error with
+a direct email fallback rather than failing silently.
 
 ## Why not Airtable?
 

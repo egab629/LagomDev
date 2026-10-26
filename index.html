@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="/styles.css?v=16">
+<link rel="stylesheet" href="/styles.css?v=17">
 </head>
 <body>
 
@@ -2579,8 +2579,6 @@
     <button type="button" class="apply-modal-close" onclick="closeApplyModal()" aria-label="Close">&times;</button>
     <h3>Apply for <span id="applyModalRole">this role</span></h3>
     <form id="applyForm" onsubmit="submitApplication(event)">
-      <input type="hidden" name="access_key" value="f7dae290-7419-4171-83dd-f4a4a967c819">
-      <input type="hidden" name="subject" id="applySubject" value="">
       <input type="hidden" name="position" id="applyPosition" value="">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-group">
@@ -2596,8 +2594,10 @@
         <input type="tel" name="phone">
       </div>
       <div class="form-group">
-        <label>Resume link</label>
-        <input type="url" name="resume_link" placeholder="LinkedIn, Google Drive, portfolio, etc.">
+        <label for="applyResume">Resume</label>
+        <input type="file" id="applyResume" name="resume" required
+               accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <span class="form-hint">PDF or Word document, up to 5 MB.</span>
       </div>
       <div class="form-group">
         <label>Anything else you'd like us to know?</label>
@@ -2610,7 +2610,7 @@
   </div>
 </div>
 
-<script src="/script.js?v=14"></script>
+<script src="/script.js?v=15"></script>
 
 </body>
 </html>
