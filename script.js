@@ -451,7 +451,7 @@ function closeApplyModal() {
 }
 
 // Deployed Apps Script web app URL (ends in /exec). See CAREERS-SETUP.md.
-const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbySKE0xelAqeFlwJXYQPW3nUbKUIH5CB9BS5VBC5-wuWfuwzR961V9m228-UucOD-0yow/exec';
+const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz4DtnVq8iR9p-m9nCKmxICVTvCMWcQkb1cCGSd8FPiefLQdgg_tWGtpwshj2K98mp3JA/exec';
 const RESUME_MAX_BYTES = 5 * 1024 * 1024;
 
 function fileToBase64(file) {
