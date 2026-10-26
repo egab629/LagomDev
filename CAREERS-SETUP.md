@@ -135,6 +135,22 @@ To change who gets the emails, edit `NOTIFY_EMAIL` in the script, then
 **Deploy → Manage deployments → Edit → New version** (the URL stays the same).
 Any change to the script needs a new version this way to go live.
 
+### Admin page for submitted applications
+
+Every application is also logged to a Google Sheet, **Website Job Applications
+log**, inside the resumes folder. The same script serves a private admin page
+listing them: search, filter by status or role, open each resume, set a status
+(New, Reviewing, Interview, Offer, Hired, Not a fit) and keep team notes.
+
+Only the addresses in `ADMIN_EMAILS` (gina@ and pete@) can see it, signed in
+with their Lagom Google accounts; anyone else gets a "no access" page. Running
+`setup` shares the resumes folder with the other admins so they can open the files.
+
+The admin page is its own deployment of the same script, so it gets its own URL:
+**Deploy → New deployment → Web app**, *Execute as* **Me**, *Who has access*
+**Anyone within Lagom Development**. Bookmark that URL. Keep the public
+deployment (the one in `script.js`) as it is.
+
 If the endpoint is unreachable or not set, the form shows an inline error with
 a direct email fallback rather than failing silently.
 
