@@ -142,9 +142,9 @@ log**, inside the resumes folder. The same script serves a private admin page
 listing them: search, filter by status or role, open each resume, set a status
 (New, Reviewing, Interview, Offer, Hired, Not a fit) and keep team notes.
 
-Only the addresses in `ADMIN_EMAILS` (gina@ and pete@) can see it, signed in
-with their Lagom Google accounts; anyone else gets a "no access" page. Running
-`setup` shares the resumes folder with the other admins so they can open the files.
+Anyone signed in with an @lagomdevelopment.com Google account can view it; only
+the addresses in `ADMIN_EMAILS` (gina@ and pete@) can change statuses and notes. Running
+`setup` makes the resumes folder viewable by everyone at Lagom so they can open the files.
 
 The admin page is its own deployment of the same script, so it gets its own URL:
 **Deploy → New deployment → Web app**, *Execute as* **Me**, *Who has access*

@@ -4,11 +4,13 @@
  * POST (from the careers-page form): saves the resume to a Drive folder, logs
  * the application to a Google Sheet and emails it to NOTIFY_EMAIL.
  * GET (opened in a browser): the private admin page for reviewing
- * applications, shown only to ADMIN_EMAILS.
+ * applications. Anyone signed in at ADMIN_DOMAIN can view it; only
+ * ADMIN_EMAILS can change statuses and notes.
  * See CAREERS-SETUP.md ("How applications are delivered") for deployment steps.
  */
 
 const NOTIFY_EMAIL = 'pete@lagomdevelopment.com';
+const ADMIN_DOMAIN = 'lagomdevelopment.com';
 const ADMIN_EMAILS = ['gina@lagomdevelopment.com', 'pete@lagomdevelopment.com'];
 const FOLDER_NAME = 'Website Job Applications';
 const LOG_NAME = 'Website Job Applications log';
@@ -83,12 +85,12 @@ function doPost(e) {
 
 function doGet() {
   const viewer = currentUser();
-  if (!isAdmin(viewer)) {
+  if (!canView(viewer)) {
     return HtmlService.createHtmlOutput(
       '<div style="font-family:system-ui,sans-serif;max-width:32rem;margin:4rem auto;padding:0 1rem;color:#1e2420">' +
       '<h2 style="font-weight:600">You don\'t have access to this page</h2>' +
-      '<p>Lagom job applications can only be viewed by ' + ADMIN_EMAILS.join(' and ') +
-      ', signed in to Google.</p>' +
+      '<p>Lagom job applications can only be viewed by people signed in to Google with an @' +
+      ADMIN_DOMAIN + ' account.</p>' +
       (viewer ? '<p style="color:#4a5148">You\'re signed in as ' + escapeHtml(viewer) + '.</p>' : '') +
       '</div>'
     ).setTitle('Lagom applications');
@@ -100,7 +102,7 @@ function doGet() {
 
 /** Called from the admin page. */
 function getApplications() {
-  requireAdmin();
+  requireViewer();
   const sheet = logSheet();
   const values = sheet.getDataRange().getValues();
   const head = values.shift();
@@ -108,6 +110,7 @@ function getApplications() {
   const iso = (v) => (v instanceof Date ? v.toISOString() : String(v || ''));
   return {
     statuses: STATUSES,
+    canEdit: isAdmin(currentUser()),
     folderUrl: applicationsFolder().getUrl(),
     sheetUrl: sheet.getParent().getUrl(),
     applications: values.filter((r) => r[col('ID')]).map((r) => ({
@@ -128,7 +131,7 @@ function getApplications() {
 
 /** Called from the admin page: change an application's status and/or notes. */
 function updateApplication(id, changes) {
-  requireAdmin();
+  if (!isAdmin(currentUser())) throw new Error('Only ' + ADMIN_EMAILS.join(' and ') + ' can change applications.');
   return withLock(() => {
     const sheet = logSheet();
     const values = sheet.getDataRange().getValues();
@@ -152,15 +155,13 @@ function updateApplication(id, changes) {
 
 /**
  * Run from the Apps Script editor after pasting a new version: grants
- * permissions, creates the folder and log, shares the folder with the other
- * admins so they can open resumes, and logs any resumes saved before the log existed.
+ * permissions, creates the folder and log, lets everyone at ADMIN_DOMAIN view
+ * the folder (and so open resumes), and logs any resumes saved before the log existed.
  */
 function setup() {
   const folder = applicationsFolder();
   const sheet = logSheet();
-  const owner = Session.getEffectiveUser().getEmail().toLowerCase();
-  const others = ADMIN_EMAILS.filter((e) => e.toLowerCase() !== owner);
-  if (others.length) folder.addViewers(others);
+  folder.setSharing(DriveApp.Access.DOMAIN, DriveApp.Permission.VIEW);
 
   const known = new Set(sheet.getDataRange().getValues().map((r) => String(r[8])));
   const files = folder.getFiles();
@@ -176,7 +177,7 @@ function setup() {
   }
   console.log('Resumes folder: ' + folder.getUrl());
   console.log('Applications log: ' + sheet.getParent().getUrl());
-  console.log('Shared resumes folder with: ' + (others.join(', ') || 'nobody else'));
+  console.log('Resumes folder is now viewable by everyone at ' + ADMIN_DOMAIN);
   console.log('Older resumes added to the log: ' + added);
   console.log('Emails left today: ' + MailApp.getRemainingDailyQuota());
 }
@@ -219,8 +220,12 @@ function isAdmin(email) {
   return !!email && ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(email);
 }
 
-function requireAdmin() {
-  if (!isAdmin(currentUser())) throw new Error('You don\'t have access to applications.');
+function canView(email) {
+  return !!email && email.endsWith('@' + ADMIN_DOMAIN.toLowerCase());
+}
+
+function requireViewer() {
+  if (!canView(currentUser())) throw new Error('You don\'t have access to applications.');
 }
 
 function withLock(fn) {
@@ -298,6 +303,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
   .muted { color: var(--mist); }
   .nowrap { white-space: nowrap; }
   .status { font-size: 0.85rem; padding: 4px 6px; }
+  .status:disabled { opacity: 1; cursor: default; }
   .s-New { border-color: var(--green); background: var(--green-pale); color: var(--green-deep); }
   .s-Interview, .s-Offer { border-color: #d9a441; background: var(--amber-pale); color: var(--amber); }
   .s-Hired { border-color: var(--green-deep); background: var(--green-deep); color: #fff; }
@@ -356,7 +362,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
-  var state = { apps: [], statuses: [], filter: 'Active', open: null };
+  var state = { apps: [], statuses: [], filter: 'Active', open: null, canEdit: false };
   var el = function (id) { return document.getElementById(id); };
   var dateFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
 
@@ -388,6 +394,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
       .withSuccessHandler(function (data) {
         state.apps = data.applications;
         state.statuses = data.statuses;
+        state.canEdit = data.canEdit;
         el('folderLink').href = data.folderUrl; el('folderLink').hidden = false;
         el('sheetLink').href = data.sheetUrl; el('sheetLink').hidden = false;
         var roles = Array.from(new Set(state.apps.map(function (a) { return a.position; }))).filter(Boolean).sort();
@@ -432,7 +439,8 @@ const ADMIN_HTML = String.raw`<!doctype html>
     }));
     var fresh = counts.New || 0;
     el('summary').textContent = state.apps.length + ' application' + (state.apps.length === 1 ? '' : 's') +
-      (fresh ? ', ' + fresh + ' new' : '') + '. Select a row to see the message and add notes.';
+      (fresh ? ', ' + fresh + ' new' : '') + '. Select a row to see the message' +
+      (state.canEdit ? ' and add notes.' : ' and notes. View only: Gina and Pete update statuses.');
   }
 
   function render() {
@@ -451,6 +459,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
       var select = make('select', { className: statusClass(a.status), 'aria-label': 'Status for ' + a.name });
       state.statuses.forEach(function (s) { select.appendChild(make('option', { value: s, text: s })); });
       select.value = a.status;
+      select.disabled = !state.canEdit;
       select.addEventListener('click', stop);
       select.addEventListener('keydown', stop);
       select.addEventListener('change', function () { save(a, { status: select.value }, select); });
@@ -480,6 +489,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
   function detailRow(a) {
     var notes = make('textarea', { 'aria-label': 'Notes for ' + a.name, placeholder: 'Add notes for the team' });
     notes.value = a.notes;
+    if (!state.canEdit) { notes.readOnly = true; notes.placeholder = 'No notes yet.'; }
     var btn = make('button', { type: 'button', className: 'btn', text: 'Save notes' });
     var meta = make('span', { className: 'muted', text: a.updated ? 'Last updated ' + dateFmt.format(new Date(a.updated)) : '' });
     btn.addEventListener('click', function () { save(a, { notes: notes.value }, btn); });
@@ -491,7 +501,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
     ]);
     var notesBox = make('div', {}, [
       make('div', { className: 'label', text: 'Team notes' }), notes,
-      make('div', { className: 'row-actions' }, [btn, meta]),
+      make('div', { className: 'row-actions' }, [state.canEdit ? btn : null, meta]),
     ]);
     return make('tr', { className: 'detail' },
       [make('td', { colspan: '7' }, [make('div', { className: 'detail-grid' }, [contact, notesBox])])]);
