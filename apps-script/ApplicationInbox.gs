@@ -324,6 +324,10 @@ const ADMIN_HTML = String.raw`<!doctype html>
   tr.app:hover td, tr.app.open td { background: var(--green-pale); }
   tr.app.open td { border-bottom-color: transparent; }
   .name { font-weight: 500; }
+  td.flag, th.flag { width: 28px; padding-right: 0; }
+  .msg-flag { display: inline-flex; color: var(--green-dark); }
+  .msg-flag svg { width: 16px; height: 16px; display: block; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .muted { color: var(--mist); }
   .nowrap { white-space: nowrap; }
   .status { font-size: 0.85rem; padding: 4px 6px; }
@@ -374,7 +378,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
     <div class="scroll">
       <table>
         <thead><tr>
-          <th>Submitted</th><th>Name</th><th>Role</th><th class="hide-sm">Email</th><th class="hide-sm">Phone</th>
+          <th class="flag"><span class="sr-only">Message</span></th><th>Submitted</th><th>Name</th><th>Role</th><th class="hide-sm">Email</th><th class="hide-sm">Phone</th>
           <th>Resume</th><th>Status</th>
         </tr></thead>
         <tbody id="rows"></tbody>
@@ -407,6 +411,22 @@ const ADMIN_HTML = String.raw`<!doctype html>
     t.className = 'toast show' + (isError ? ' error' : '');
     clearTimeout(toast.timer);
     toast.timer = setTimeout(function () { t.className = 'toast'; }, isError ? 5000 : 2000);
+  }
+
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  function messageFlag(a) {
+    if (!a.message || !a.message.trim()) return null;
+    var span = make('span', { className: 'msg-flag', role: 'img', 'aria-label': 'Has a message',
+      title: a.message.length > 140 ? a.message.slice(0, 140) + '…' : a.message });
+    var svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', 'M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3.5V17H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z');
+    path.setAttribute('fill', 'currentColor');
+    svg.appendChild(path);
+    span.appendChild(svg);
+    return span;
   }
 
   function statusClass(s) { return 'status s-' + s.replace(/\s+/g, '-'); }
@@ -488,6 +508,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
       select.addEventListener('keydown', stop);
       select.addEventListener('change', function () { save(a, { status: select.value }, select); });
       var tr = make('tr', { className: 'app' + (open ? ' open' : ''), tabindex: '0', 'aria-expanded': String(open) }, [
+        make('td', { className: 'flag' }, [messageFlag(a)]),
         make('td', { className: 'nowrap', text: a.submitted ? dateFmt.format(new Date(a.submitted)) : '—' }),
         make('td', { className: 'name', text: a.name }),
         make('td', { text: a.position || '—' }),
@@ -528,7 +549,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
       make('div', { className: 'row-actions' }, [state.canEdit ? btn : null, meta]),
     ]);
     return make('tr', { className: 'detail' },
-      [make('td', { colspan: '7' }, [make('div', { className: 'detail-grid' }, [contact, notesBox])])]);
+      [make('td', { colspan: '8' }, [make('div', { className: 'detail-grid' }, [contact, notesBox])])]);
   }
 
   function save(a, changes, control) {
