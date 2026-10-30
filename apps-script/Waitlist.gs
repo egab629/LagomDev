@@ -16,7 +16,7 @@ const STATES = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA'
   'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM',
   'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV',
   'WI', 'WY'];
-const LOG_HEADERS = ['ID', 'Submitted', 'Name', 'Email', 'Street', 'City', 'State', 'ZIP', 'Model'];
+const LOG_HEADERS = ['ID', 'Submitted', 'Name', 'Email', 'City', 'State', 'ZIP', 'Model'];
 
 /* ── Receiving signups ──────────────────────────────────────────────────── */
 
@@ -27,26 +27,32 @@ function doPost(e) {
 
     const name = clean(body.name, 200);
     const email = clean(body.email, 200).toLowerCase();
-    const street = clean(body.street, 200);
     const city = clean(body.city, 100);
     const state = clean(body.state, 2).toUpperCase();
     const zip = clean(body.zip, 10);
     const model = clean(body.model, 50);
     if (!name) throw new Error('Please enter your name.');
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('Please enter a valid email address.');
-    if (!street || !city) throw new Error('Please enter your address.');
+    if (!city) throw new Error('Please enter your city.');
     if (!STATES.includes(state)) throw new Error('Please choose your state.');
     if (!/^\d{5}(-\d{4})?$/.test(zip)) throw new Error('Please enter a valid ZIP code.');
     if (!MODELS.includes(model)) throw new Error('Please choose a Lagom model.');
 
     withLock(() => {
       const sheet = logSheet();
-      // The same person submitting twice (double click, retry) is only listed once per model.
       const rows = sheet.getDataRange().getValues();
-      const dupe = rows.some((r, i) => i > 0 && String(r[3]).toLowerCase() === email && String(r[8]) === model);
+      const head = rows[0];
+      // The same person submitting twice (double click, retry) is only listed once per model.
+      const emailCol = head.indexOf('Email');
+      const modelCol = head.indexOf('Model');
+      const dupe = rows.some((r, i) => i > 0 && String(r[emailCol]).toLowerCase() === email && String(r[modelCol]) === model);
       if (dupe) return;
-      sheet.appendRow([Utilities.getUuid(), new Date(), safeCell(name), safeCell(email), safeCell(street),
-        safeCell(city), state, "'" + zip, model]);
+      // Fill by header name so a sheet with extra or reordered columns still lines up.
+      const values = {
+        ID: Utilities.getUuid(), Submitted: new Date(), Name: safeCell(name), Email: safeCell(email),
+        City: safeCell(city), State: state, ZIP: "'" + zip, Model: model,
+      };
+      sheet.appendRow(head.map((h) => (h in values ? values[h] : '')));
     });
     return json({ success: true });
   } catch (err) {
@@ -89,7 +95,6 @@ function getWaitlist() {
       submitted: iso(r[col('Submitted')]),
       name: String(r[col('Name')]),
       email: String(r[col('Email')]),
-      street: String(r[col('Street')]),
       city: String(r[col('City')]),
       state: String(r[col('State')]),
       zip: String(r[col('ZIP')]),
@@ -119,7 +124,7 @@ function logSheet() {
   sheet.appendRow(LOG_HEADERS);
   sheet.setFrozenRows(1);
   sheet.getRange(1, 1, 1, LOG_HEADERS.length).setFontWeight('bold');
-  sheet.getRange('H:H').setNumberFormat('@'); // keep leading zeros in ZIP codes
+  sheet.getRange('G:G').setNumberFormat('@'); // keep leading zeros in ZIP codes
   props.setProperty('LOG_SHEET_ID', ss.getId());
   return sheet;
 }
@@ -243,7 +248,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
     <div class="scroll">
       <table>
         <thead><tr>
-          <th>Signed up</th><th>Name</th><th class="hide-sm">Email</th><th>Address</th><th>State</th><th>Model</th>
+          <th>Signed up</th><th>Name</th><th class="hide-sm">Email</th><th>City</th><th>State</th><th>Model</th>
         </tr></thead>
         <tbody id="rows"></tbody>
       </table>
@@ -310,7 +315,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
       if (state.fState && s.state !== state.fState) return false;
       if (state.fModel && s.model !== state.fModel) return false;
       if (!q) return true;
-      return [s.name, s.email, s.street, s.city, s.zip].join(' ').toLowerCase().indexOf(q) >= 0;
+      return [s.name, s.email, s.city, s.zip].join(' ').toLowerCase().indexOf(q) >= 0;
     });
   }
 
@@ -334,7 +339,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
         make('td', { className: 'nowrap', text: s.submitted ? dateFmt.format(new Date(s.submitted)) : '—' }),
         make('td', { className: 'name', text: s.name }),
         make('td', { className: 'hide-sm' }, [email]),
-        make('td', { text: s.street + ', ' + s.city + ' ' + s.zip }),
+        make('td', { text: s.city + ' ' + s.zip }),
         make('td', { text: s.state }),
         make('td', { className: 'nowrap', text: s.model }),
       ]));
