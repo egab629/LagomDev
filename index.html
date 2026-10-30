@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="/styles.css?v=17">
+<link rel="stylesheet" href="/styles.css?v=18">
 </head>
 <body>
 
@@ -2155,7 +2155,10 @@
       <div class="label" style="color: var(--green); justify-content: center;">Our Home Models</div>
       <h1>The Lagom 5</h1>
       <p>Five SIPs-built models designed for attainable, energy-efficient living — thoughtfully planned for real families across the Southeast.</p>
-      <a href="https://drive.google.com/file/d/1Pdlpre4akbkrzEX2JRQHMPLKYmvtKk7r/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-white" style="margin-top: 2rem; display: inline-flex;">Download Full Catalog</a>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <button type="button" class="btn btn-white waitlist-trigger" data-model="">Join the Waitlist</button>
+        <a href="https://drive.google.com/file/d/1Pdlpre4akbkrzEX2JRQHMPLKYmvtKk7r/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline" style="display: inline-flex;">Download Full Catalog</a>
+      </div>
     </div>
   </div>
 
@@ -2308,6 +2311,7 @@
     <h2>Interested in Model 1?</h2>
     <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <button type="button" class="btn btn-white waitlist-trigger" data-model="Model 1">Join the Waitlist</button>
       <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
     </div>
@@ -2370,6 +2374,7 @@
     <h2>Interested in Model 2?</h2>
     <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <button type="button" class="btn btn-white waitlist-trigger" data-model="Model 2">Join the Waitlist</button>
       <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
     </div>
@@ -2432,6 +2437,7 @@
     <h2>Interested in Model 3?</h2>
     <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <button type="button" class="btn btn-white waitlist-trigger" data-model="Model 3">Join the Waitlist</button>
       <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
     </div>
@@ -2494,6 +2500,7 @@
     <h2>Interested in Model 4?</h2>
     <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <button type="button" class="btn btn-white waitlist-trigger" data-model="Model 4">Join the Waitlist</button>
       <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
     </div>
@@ -2556,6 +2563,7 @@
     <h2>Interested in Model 5?</h2>
     <p>Get in touch and we'll walk you through availability, options, and next steps.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+      <button type="button" class="btn btn-white waitlist-trigger" data-model="Model 5">Join the Waitlist</button>
       <a href="#" class="btn btn-white" onclick="showPage('contact')">Contact Us</a>
       <a href="#" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="showPage('catalog')">View All Models</a>
     </div>
@@ -2610,7 +2618,112 @@
   </div>
 </div>
 
-<script src="/script.js?v=17"></script>
+<!-- Waitlist modal — global overlay, same pattern as the apply modal above. -->
+<div class="apply-modal-backdrop" id="waitlistModalBackdrop" onclick="closeWaitlistModal()">
+  <div class="apply-modal" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle" onclick="event.stopPropagation()">
+    <button type="button" class="apply-modal-close" onclick="closeWaitlistModal()" aria-label="Close">&times;</button>
+    <h3 id="waitlistTitle">Join the Lagom waitlist</h3>
+    <form id="waitlistForm" onsubmit="submitWaitlist(event)">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-group">
+        <label for="wlName">Your name</label>
+        <input type="text" id="wlName" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label for="wlEmail">Email address</label>
+        <input type="email" id="wlEmail" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label for="wlStreet">Street address</label>
+        <input type="text" id="wlStreet" name="street" autocomplete="address-line1" required>
+      </div>
+      <div class="form-group">
+        <label for="wlCity">City</label>
+        <input type="text" id="wlCity" name="city" autocomplete="address-level2" required>
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="wlState">State</label>
+          <select id="wlState" name="state" autocomplete="address-level1" required>
+            <option value="">Select…</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="wlZip">ZIP code</label>
+          <input type="text" id="wlZip" name="zip" autocomplete="postal-code" inputmode="numeric" pattern="\d{5}(-\d{4})?" title="5-digit ZIP code" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="wlModel">Which Lagom model are you interested in?</label>
+        <select id="wlModel" name="model" required>
+          <option value="">Select a model…</option>
+          <option>Model 1</option>
+          <option>Model 2</option>
+          <option>Model 3</option>
+          <option>Model 4</option>
+          <option>Model 5</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-error" id="waitlist-error">Something went wrong sending this — please email us directly at <a href="mailto:via@lagomdevelopment.com">via@lagomdevelopment.com</a> instead.</div>
+      <button type="submit" class="btn btn-primary" id="waitlist-submit-btn" style="width: 100%; justify-content: center;">Join the Waitlist</button>
+    </form>
+    <div class="form-success" id="waitlist-success">✓ You're on the list! We'll be in touch as homes become available.</div>
+  </div>
+</div>
+
+<script src="/script.js?v=18"></script>
 
 </body>
 </html>

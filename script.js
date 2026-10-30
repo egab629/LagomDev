@@ -516,4 +516,81 @@ async function submitApplication(event) {
   }
 }
 
+/* ═══════════════════════════════════════
+   Waitlist modal — submits to the Lagom waitlist inbox (a Google Apps Script
+   web app, see apps-script/Waitlist.gs), which adds a row to the waitlist sheet.
+═══════════════════════════════════════ */
+
+// Deployed Waitlist.gs web app URL (ends in /exec).
+const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw_-uXhIxNkJvW0B-nf4jY8_rIJZEl1oK8Ylqb7C7pbuwdXZIWM1XgZ_PJ-2FHa2fqn/exec';
+
+document.addEventListener('click', function(e) {
+  const trigger = e.target.closest('.waitlist-trigger');
+  if (trigger) openWaitlistModal(trigger.dataset.model);
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeWaitlistModal();
+});
+
+function openWaitlistModal(model) {
+  const form = document.getElementById('waitlistForm');
+  const backdrop = document.getElementById('waitlistModalBackdrop');
+  if (!form || !backdrop) return;
+  form.reset();
+  form.style.display = '';
+  if (model) document.getElementById('wlModel').value = model;
+  document.getElementById('waitlist-success').style.display = 'none';
+  document.getElementById('waitlist-error').style.display = 'none';
+  const btn = document.getElementById('waitlist-submit-btn');
+  btn.disabled = false;
+  btn.textContent = 'Join the Waitlist';
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('wlName').focus();
+}
+
+function closeWaitlistModal() {
+  const backdrop = document.getElementById('waitlistModalBackdrop');
+  if (!backdrop) return;
+  backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function submitWaitlist(event) {
+  event.preventDefault();
+  const form = event.target;
+  const btn = document.getElementById('waitlist-submit-btn');
+  const successEl = document.getElementById('waitlist-success');
+  const errorEl = document.getElementById('waitlist-error');
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  const formData = new FormData(form);
+  if (formData.get('botcheck')) return; // honeypot tripped — silently drop
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    if (!WAITLIST_ENDPOINT) throw new Error('WAITLIST_ENDPOINT is not set');
+    // text/plain keeps this a "simple" request, which Apps Script accepts
+    // cross-origin without a CORS preflight.
+    const res = await fetch(WAITLIST_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(Object.fromEntries(formData.entries()))
+    });
+    const result = await res.json();
+    if (!result.success) throw new Error(result.message || 'Submission failed');
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+  } catch (err) {
+    console.error('[waitlist] signup failed:', err);
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Join the Waitlist';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', fetchJobs);

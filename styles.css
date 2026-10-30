@@ -1361,6 +1361,7 @@ footer {
   background: #fdecea; border: 1px solid #f5c2c0; border-radius: var(--radius);
   padding: 1rem 1.25rem; color: #b42318; font-size: 0.9rem; display: none;
 }
+.apply-modal .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 600px) {
   .apply-modal { padding: 2rem 1.5rem; }
 }
