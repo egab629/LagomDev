@@ -522,7 +522,7 @@ async function submitApplication(event) {
 ═══════════════════════════════════════ */
 
 // Deployed Waitlist.gs web app URL (ends in /exec).
-const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyu5ZY7UYk9cKaPIt8Y3cpwyLih3I8VUSyeOMrSH4yx9bzHmcCBtwdpDxrV8YcFYg9i/exec';
+const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycby_9znVieDh_5npPOaWiSPNOAUf0uOwr_5MyTBC-sfQDX7N45gZ_CEEeYezSgUX78ws/exec';
 
 document.addEventListener('click', function(e) {
   const trigger = e.target.closest('.waitlist-trigger');
