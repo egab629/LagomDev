@@ -1361,6 +1361,8 @@ footer {
   background: #fdecea; border: 1px solid #f5c2c0; border-radius: var(--radius);
   padding: 1rem 1.25rem; color: #b42318; font-size: 0.9rem; display: none;
 }
+.apply-modal .form-check { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.85rem; color: var(--stone); line-height: 1.5; cursor: pointer; }
+.apply-modal .form-check input { margin-top: 0.2rem; flex: none; width: 1rem; height: 1rem; accent-color: var(--green-dark); }
 .apply-modal .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 600px) {
   .apply-modal { padding: 2rem 1.5rem; }

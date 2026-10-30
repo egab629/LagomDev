@@ -16,7 +16,7 @@ const STATES = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA'
   'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM',
   'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV',
   'WI', 'WY'];
-const LOG_HEADERS = ['ID', 'Submitted', 'Name', 'Email', 'City', 'State', 'ZIP', 'Model'];
+const LOG_HEADERS = ['ID', 'Submitted', 'Name', 'Email', 'City', 'State', 'ZIP', 'Model', 'Email opt-in'];
 
 /* ── Receiving signups ──────────────────────────────────────────────────── */
 
@@ -31,6 +31,7 @@ function doPost(e) {
     const state = clean(body.state, 2).toUpperCase();
     const zip = clean(body.zip, 10);
     const model = clean(body.model, 50);
+    const optIn = body.optin ? 'Yes' : 'No'; // ticked box = consent to promotional email
     if (!name) throw new Error('Please enter your name.');
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('Please enter a valid email address.');
     if (!city) throw new Error('Please enter your city.');
@@ -46,11 +47,17 @@ function doPost(e) {
       const emailCol = head.indexOf('Email');
       const modelCol = head.indexOf('Model');
       const dupe = rows.some((r, i) => i > 0 && String(r[emailCol]).toLowerCase() === email && String(r[modelCol]) === model);
-      if (dupe) return;
+      if (dupe) {
+        // A repeat signup can still add consent that was missing the first time.
+        const optCol = head.indexOf('Email opt-in');
+        const at = rows.findIndex((r, i) => i > 0 && String(r[emailCol]).toLowerCase() === email && String(r[modelCol]) === model);
+        if (optIn === 'Yes' && optCol >= 0 && at > 0 && rows[at][optCol] !== 'Yes') sheet.getRange(at + 1, optCol + 1).setValue('Yes');
+        return;
+      }
       // Fill by header name so a sheet with extra or reordered columns still lines up.
       const values = {
         ID: Utilities.getUuid(), Submitted: new Date(), Name: safeCell(name), Email: safeCell(email),
-        City: safeCell(city), State: state, ZIP: "'" + zip, Model: model,
+        City: safeCell(city), State: state, ZIP: "'" + zip, Model: model, 'Email opt-in': optIn,
       };
       sheet.appendRow(head.map((h) => (h in values ? values[h] : '')));
     });
@@ -99,6 +106,7 @@ function getWaitlist() {
       state: String(r[col('State')]),
       zip: String(r[col('ZIP')]),
       model: String(r[col('Model')]),
+      optIn: String(r[col('Email opt-in')]) === 'Yes',
     })).reverse(),
   };
 }
@@ -233,7 +241,8 @@ const ADMIN_HTML = String.raw`<!doctype html>
   </header>
 
   <div class="panels">
-    <div class="card"><div class="total" id="total">–<small>people on the waitlist</small></div></div>
+    <div class="card"><div class="total" id="total">–<small>people on the waitlist</small></div>
+      <p class="sub" id="optins"></p></div>
     <div class="card"><h2>By model</h2><div class="bars" id="byModel"></div></div>
     <div class="card"><h2>By state</h2><div class="bars" id="byState"></div></div>
   </div>
@@ -248,7 +257,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
     <div class="scroll">
       <table>
         <thead><tr>
-          <th>Signed up</th><th>Name</th><th class="hide-sm">Email</th><th>City</th><th>State</th><th>Model</th>
+          <th>Signed up</th><th>Name</th><th class="hide-sm">Email</th><th>City</th><th>State</th><th>Model</th><th>Emails OK</th>
         </tr></thead>
         <tbody id="rows"></tbody>
       </table>
@@ -322,6 +331,8 @@ const ADMIN_HTML = String.raw`<!doctype html>
   function render() {
     var n = state.list.length;
     el('total').firstChild.textContent = String(n);
+    var opted = state.list.filter(function (s) { return s.optIn; }).length;
+    el('optins').textContent = n ? opted + ' opted in to promotional emails' : '';
     el('summary').textContent = n ? 'Click a model or state to filter the list.' : 'No signups yet.';
     var byModel = tally('model'), byState = tally('state');
     var states = Object.keys(byState).sort(function (a, b) { return byState[b] - byState[a] || a.localeCompare(b); });
@@ -342,6 +353,7 @@ const ADMIN_HTML = String.raw`<!doctype html>
         make('td', { text: s.city + ' ' + s.zip }),
         make('td', { text: s.state }),
         make('td', { className: 'nowrap', text: s.model }),
+        make('td', { text: s.optIn ? 'Yes' : '—' }),
       ]));
     });
     el('empty').hidden = list.length > 0;
