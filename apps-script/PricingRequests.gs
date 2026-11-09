@@ -7,7 +7,7 @@
  * into PRICING_ENDPOINT in script.js. Run setup() once to grant permissions.
  */
 
-const NOTIFY_EMAIL = 'via@lagomdevelopment.com';
+const NOTIFY_EMAIL = 'gina@lagomdevelopment.com';
 const LOG_NAME = 'Lagom Pricing Requests';
 const TYPES = ['Contract homebuilding', 'Panel kit', 'Both'];
 const MODELS = ['Model 1', 'Model 2', 'Model 3', 'Model 4', 'Model 5', 'Not sure yet'];

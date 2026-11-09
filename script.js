@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', fetchJobs);
 
 // Deployed PricingRequests.gs web app URL (ends in /exec).
 const PRICING_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz1be5cb8YnrRDBjuPFRXQ3OHdT86Dw76m-YsPYcsjfbaKE-Frxmmv73t0Q72z9_riF/exec';
-const PRICING_EMAIL = 'via@lagomdevelopment.com';
+const PRICING_EMAIL = 'gina@lagomdevelopment.com';
 
 document.addEventListener('click', function(e) {
   const trigger = e.target.closest('.pricing-trigger');
