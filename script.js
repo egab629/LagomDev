@@ -594,3 +594,92 @@ async function submitWaitlist(event) {
 }
 
 document.addEventListener('DOMContentLoaded', fetchJobs);
+
+/* ═══════════════════════════════════════
+   Pricing request modal — contract homebuilding / panel kit pricing.
+   Submits to a Google Apps Script web app (apps-script/PricingRequests.gs).
+   Until PRICING_ENDPOINT is set, it falls back to a pre-filled email.
+═══════════════════════════════════════ */
+
+// Deployed PricingRequests.gs web app URL (ends in /exec).
+const PRICING_ENDPOINT = '';
+const PRICING_EMAIL = 'via@lagomdevelopment.com';
+
+document.addEventListener('click', function(e) {
+  const trigger = e.target.closest('.pricing-trigger');
+  if (trigger) openPricingModal(trigger.dataset.model);
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePricingModal();
+});
+
+function openPricingModal(model) {
+  const form = document.getElementById('pricingForm');
+  const backdrop = document.getElementById('pricingModalBackdrop');
+  if (!form || !backdrop) return;
+  form.reset();
+  form.style.display = '';
+  if (model) document.getElementById('prModel').value = model;
+  document.getElementById('pricing-success').style.display = 'none';
+  document.getElementById('pricing-error').style.display = 'none';
+  const btn = document.getElementById('pricing-submit-btn');
+  btn.disabled = false;
+  btn.textContent = 'Request Pricing';
+  backdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('prType').focus();
+}
+
+function closePricingModal() {
+  const backdrop = document.getElementById('pricingModalBackdrop');
+  if (!backdrop) return;
+  backdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function submitPricing(event) {
+  event.preventDefault();
+  const form = event.target;
+  const btn = document.getElementById('pricing-submit-btn');
+  const successEl = document.getElementById('pricing-success');
+  const errorEl = document.getElementById('pricing-error');
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  const formData = new FormData(form);
+  if (formData.get('botcheck')) return; // honeypot tripped — silently drop
+  const data = Object.fromEntries(formData.entries());
+
+  if (!PRICING_ENDPOINT) {
+    // No inbox deployed yet: hand the request to the visitor's email app.
+    const body = [
+      'Pricing type: ' + data.type, 'Model: ' + data.model, 'Name: ' + data.name,
+      'Email: ' + data.email, 'Phone: ' + (data.phone || ''),
+      'Build site: ' + data.city + ', ' + data.state + ' ' + data.zip, '', data.notes || ''
+    ].join('\n');
+    window.location.href = 'mailto:' + PRICING_EMAIL + '?subject=' +
+      encodeURIComponent('Pricing request: ' + data.type + ' — ' + data.model) +
+      '&body=' + encodeURIComponent(body);
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+  try {
+    const res = await fetch(PRICING_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if (!result.success) throw new Error(result.message || 'Submission failed');
+    form.style.display = 'none';
+    successEl.style.display = 'block';
+  } catch (err) {
+    console.error('[pricing] request failed:', err);
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Request Pricing';
+  }
+}
