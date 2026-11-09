@@ -1367,3 +1367,14 @@ footer {
 @media (max-width: 600px) {
   .apply-modal { padding: 2rem 1.5rem; }
 }
+
+/* Model spec-sheet sections */
+.model-price-strip { background: var(--green-dark); }
+.model-standard-section { border-top: 1px solid rgba(0,0,0,0.08); }
+.model-standard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; }
+.model-standard-grid h4 { font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.75rem; }
+.model-standard-grid ul { list-style: none; padding: 0; margin: 0; }
+.model-standard-grid li { color: var(--stone); line-height: 1.6; padding: 0.3rem 0 0.3rem 1.1rem; position: relative; font-size: 0.95rem; }
+.model-standard-grid li::before { content: ""; position: absolute; left: 0; top: 0.85rem; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+.model-fineprint { margin-top: 1.5rem; font-size: 0.8rem; color: var(--stone); }
+@media (max-width: 700px) { .model-standard-grid { grid-template-columns: 1fr; } }
