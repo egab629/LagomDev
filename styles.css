@@ -1378,7 +1378,7 @@ footer {
 .model-standard-grid li::before { content: ""; position: absolute; left: 0; top: 0.85rem; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
 .model-fineprint { margin-top: 1.5rem; font-size: 0.8rem; color: var(--stone); }
 @media (max-width: 700px) { .model-standard-grid { grid-template-columns: 1fr; } }
-.model-price-btn { margin-top: 1rem; }
+.model-price-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
 
 /* Catalog card thumbnails — full-bleed image across the top of the card */
 .catalog-card { overflow: hidden; }
